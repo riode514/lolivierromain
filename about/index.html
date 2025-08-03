@@ -134,31 +134,9 @@
             transform: rotate(-45deg) translate(6px, -6px);
         }
 
-        /* Breadcrumb */
-        .breadcrumb {
-            margin-top: 80px;
-            padding: 1rem 0;
-            background: #f8f8f8;
-            border-bottom: 1px solid #eee;
-        }
-
-        .breadcrumb-nav {
-            font-size: 0.9rem;
-            color: #666;
-        }
-
-        .breadcrumb-nav a {
-            color: #000;
-            text-decoration: none;
-        }
-
-        .breadcrumb-nav span {
-            margin: 0 0.5rem;
-        }
-
-        /* Page Header */
-        .page-header {
-            height: 60vh;
+        /* Hero Section - Full Screen */
+        .hero-section {
+            height: 100vh;
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -166,43 +144,105 @@
             align-items: center;
             justify-content: center;
             position: relative;
-            filter: grayscale(100%);
+            background-image: url('../assets/images/facade.jpg');
         }
 
-        .page-header::before {
+        .hero-section::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             right: 0;
             bottom: 0;
-            background: rgba(0, 0, 0, 0.4);
+            background: rgba(0, 0, 0, 0.3);
             z-index: 1;
         }
 
-        .page-header-content {
+        .hero-content {
             text-align: center;
             color: white;
             z-index: 2;
             position: relative;
+            max-width: 800px;
+            padding: 0 2rem;
         }
 
-        .page-header-content h1 {
+        .hero-content h1 {
             font-family: 'Marcellus', serif;
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
         }
 
-        .page-header-content .subtitle {
-            font-size: 1.3rem;
+        .hero-content .subtitle {
+            font-size: 1.5rem;
             font-style: italic;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+            margin-bottom: 2rem;
+        }
+
+        /* Image Gallery Section */
+        .image-gallery {
+            padding: 4rem 0;
+            background: #f9f9f9;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+            color: white;
+            padding: 2rem 1.5rem 1.5rem;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            transform: translateY(0);
+        }
+
+        .gallery-overlay h3 {
+            font-family: 'Marcellus', serif;
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
         }
 
         /* Content Sections */
         .content-section {
-            padding: 4rem 0;
+            padding: 5rem 0;
         }
 
         .content-section:nth-child(even) {
@@ -211,50 +251,50 @@
 
         .section-title {
             font-family: 'Marcellus', serif;
-            font-size: 2.5rem;
+            font-size: 2.8rem;
             text-align: center;
             margin-bottom: 3rem;
             color: #000;
         }
 
         .about-text {
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
             text-align: center;
         }
 
         .about-text p {
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             line-height: 1.8;
-            margin-bottom: 2rem;
+            margin-bottom: 2.5rem;
             color: #555;
         }
 
         /* Features Grid */
         .overview-features {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+            margin-top: 4rem;
         }
 
         .feature {
             background: white;
-            padding: 2rem;
-            border-radius: 10px;
+            padding: 2.5rem;
+            border-radius: 15px;
             text-align: center;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         .feature:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
         }
 
         .feature-icon {
-            width: 60px;
-            height: 60px;
+            width: 70px;
+            height: 70px;
             margin: 0 auto 1.5rem;
             color: #000;
         }
@@ -266,15 +306,62 @@
 
         .feature h3 {
             font-family: 'Marcellus', serif;
-            font-size: 1.3rem;
-            margin-bottom: 1rem;
+            font-size: 1.4rem;
+            margin-bottom: 1.2rem;
             color: #000;
         }
 
         .feature p {
-            font-size: 1rem;
-            line-height: 1.6;
+            font-size: 1.1rem;
+            line-height: 1.7;
             color: #666;
+        }
+
+        /* Image Showcase */
+        .image-showcase {
+            padding: 5rem 0;
+            background: white;
+        }
+
+        .showcase-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+            margin-bottom: 4rem;
+        }
+
+        .showcase-grid:nth-child(even) {
+            direction: rtl;
+        }
+
+        .showcase-grid:nth-child(even) > * {
+            direction: ltr;
+        }
+
+        .showcase-image {
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .showcase-image img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+        }
+
+        .showcase-content h3 {
+            font-family: 'Marcellus', serif;
+            font-size: 2.2rem;
+            margin-bottom: 1.5rem;
+            color: #000;
+        }
+
+        .showcase-content p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #555;
         }
 
         /* Footer */
@@ -282,26 +369,40 @@
             background: #000;
             color: white;
             text-align: center;
-            padding: 2rem 0;
+            padding: 3rem 0;
         }
 
         footer p {
             margin-bottom: 0.5rem;
+            font-size: 1.1rem;
         }
 
         .footer-contact {
-            font-size: 0.9rem;
+            font-size: 1rem;
             opacity: 0.8;
         }
 
         /* Responsive Design */
         @media (max-width: 768px) {
-            .page-header-content h1 {
-                font-size: 2.5rem;
+            .hero-content h1 {
+                font-size: 2.8rem;
             }
 
-            .page-header-content .subtitle {
-                font-size: 1.1rem;
+            .hero-content .subtitle {
+                font-size: 1.2rem;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .showcase-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .showcase-grid:nth-child(even) {
+                direction: ltr;
             }
 
             .overview-features {
@@ -309,29 +410,46 @@
             }
 
             .section-title {
-                font-size: 2rem;
+                font-size: 2.2rem;
             }
 
             .content-section {
-                padding: 2rem 0;
+                padding: 3rem 0;
+            }
+
+            .showcase-image img {
+                height: 250px;
             }
         }
 
         @media (max-width: 480px) {
-            .page-header {
-                height: 50vh;
+            .hero-section {
+                height: 70vh;
             }
 
-            .page-header-content h1 {
-                font-size: 2rem;
+            .hero-content h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero-content .subtitle {
+                font-size: 1rem;
             }
 
             .feature {
-                padding: 1.5rem;
+                padding: 2rem;
             }
 
             nav {
                 padding: 1rem;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .content-section {
+                padding: 2rem 0;
             }
         }
     </style>
@@ -358,20 +476,9 @@
         </nav>
     </header>
 
-    <!-- Breadcrumb -->
-    <div class="breadcrumb">
-        <div class="container">
-            <nav class="breadcrumb-nav">
-                <a href="../">Home</a>
-                <span>/</span>
-                <span>About</span>
-            </nav>
-        </div>
-    </div>
-
-    <!-- Page Header -->
-    <section class="page-header" style="background-image: url('../assets/images/facade.jpg');">
-        <div class="page-header-content">
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-content">
             <h1>About L'Oliver Romain</h1>
             <p class="subtitle">A timeless retreat in the heart of Provence</p>
         </div>
@@ -386,6 +493,43 @@
                 <p>Each carefully appointed room showcases original architectural features – from exposed stone walls and terracotta floors to hand-hewn wooden beams that tell stories of centuries past. Our peaceful courtyard, centered around a sparkling pool, provides the perfect sanctuary for relaxation.</p>
                 
                 <p>Located just minutes from the medieval town of Uzès and the cultural riches of Nîmes, L'Oliver Romain serves as your gateway to discovering the authentic Languedoc region, with its renowned vineyards, historic monuments, and vibrant local markets.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Image Gallery -->
+    <section class="image-gallery">
+        <div class="container">
+            <h2 class="section-title">Discover Our Manor</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="../assets/images/entrance.jpg" alt="Manor Entrance">
+                    <div class="gallery-overlay">
+                        <h3>Grand Entrance</h3>
+                        <p>Welcome to our historic manor through the original stone entrance</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="../assets/images/facade-pool.jpg" alt="Facade with Pool">
+                    <div class="gallery-overlay">
+                        <h3>Pool & Facade</h3>
+                        <p>The perfect harmony between historic architecture and modern luxury</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="../assets/images/facade2.jpg" alt="Manor Facade">
+                    <div class="gallery-overlay">
+                        <h3>Historic Facade</h3>
+                        <p>18th-century stonework preserved in all its original beauty</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="../assets/images/terrace.jpg" alt="Terrace Area">
+                    <div class="gallery-overlay">
+                        <h3>Peaceful Terrace</h3>
+                        <p>Relax and unwind in our Mediterranean garden setting</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -456,6 +600,51 @@
                     </div>
                     <h3>Authentic Experience</h3>
                     <p>Immerse yourself in true Provençal living with access to local markets, vineyards, and cultural treasures.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Image Showcase -->
+    <section class="image-showcase">
+        <div class="container">
+            <div class="showcase-grid">
+                <div class="showcase-image">
+                    <img src="../assets/images/living-room2.jpg" alt="Living Room">
+                </div>
+                <div class="showcase-content">
+                    <h3>Elegant Living Spaces</h3>
+                    <p>Our meticulously restored living areas blend period features with contemporary comfort. Original stone walls, wooden beams, and carefully chosen furnishings create an atmosphere of refined relaxation where guests can truly unwind.</p>
+                </div>
+            </div>
+
+            <div class="showcase-grid">
+                <div class="showcase-image">
+                    <img src="../assets/images/french-breakfast.jpg" alt="French Breakfast">
+                </div>
+                <div class="showcase-content">
+                    <h3>Authentic French Breakfast</h3>
+                    <p>Start each morning with a traditional French breakfast featuring fresh local ingredients. From artisanal breads and pastries to regional specialties, every meal celebrates the rich culinary heritage of Provence.</p>
+                </div>
+            </div>
+
+            <div class="showcase-grid">
+                <div class="showcase-image">
+                    <img src="../assets/images/pool2.jpg" alt="Pool Area">
+                </div>
+                <div class="showcase-content">
+                    <h3>Tranquil Pool Oasis</h3>
+                    <p>Our pristine swimming pool is surrounded by Mediterranean gardens and ancient stone walls. Whether you prefer a morning swim or an evening aperitif poolside, this peaceful sanctuary offers the perfect escape.</p>
+                </div>
+            </div>
+
+            <div class="showcase-grid">
+                <div class="showcase-image">
+                    <img src="../assets/images/facade3.jpg" alt="Manor at Sunset">
+                </div>
+                <div class="showcase-content">
+                    <h3>Evening Elegance</h3>
+                    <p>As the sun sets over the Languedoc countryside, L'Oliver Romain takes on a magical quality. The warm stone facade glows in the golden light, creating an atmosphere of timeless romance and tranquility.</p>
                 </div>
             </div>
         </div>

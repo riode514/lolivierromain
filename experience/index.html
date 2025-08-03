@@ -169,27 +169,6 @@
             text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
         }
 
-        /* Breadcrumb */
-        .breadcrumb {
-            background: #f8f7f5;
-            padding: 1rem 0;
-            margin-top: 80px;
-        }
-
-        .breadcrumb-nav {
-            font-size: 0.9rem;
-            color: #666;
-        }
-
-        .breadcrumb-nav a {
-            color: #000;
-            text-decoration: none;
-        }
-
-        .breadcrumb-nav span {
-            margin: 0 0.5rem;
-        }
-
         /* Content Sections */
         .content-section {
             padding: 4rem 0;
@@ -222,14 +201,14 @@
         /* Daily Moments */
         .experience-moments {
             display: grid;
-            gap: 3rem;
+            gap: 4rem;
             margin-top: 3rem;
         }
 
         .moment {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 2rem;
+            gap: 3rem;
             align-items: center;
         }
 
@@ -242,23 +221,30 @@
         }
 
         .moment-image {
-            height: 300px;
+            height: 450px;
             background-size: cover;
             background-position: center;
-            border-radius: 8px;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            border-radius: 12px;
+            box-shadow: 0 12px 35px rgba(0,0,0,0.15);
+            filter: saturate(1.1) contrast(1.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .moment-image:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 45px rgba(0,0,0,0.2);
         }
 
         .moment-content h4 {
             font-family: 'Marcellus', serif;
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
             color: #000;
         }
 
         .moment-content p {
-            font-size: 1rem;
-            line-height: 1.7;
+            font-size: 1.1rem;
+            line-height: 1.8;
             color: #555;
         }
 
@@ -320,6 +306,12 @@
             opacity: 0.8;
         }
 
+        /* First content section after hero */
+        .first-content {
+            margin-top: 0;
+            padding-top: 4rem;
+        }
+
         /* Responsive Design */
         @media (max-width: 768px) {
             .hero-content h1 {
@@ -333,10 +325,15 @@
             .moment {
                 grid-template-columns: 1fr;
                 text-align: center;
+                gap: 2rem;
             }
 
             .moment:nth-child(even) {
                 direction: ltr;
+            }
+
+            .moment-image {
+                height: 350px;
             }
 
             .overview-features {
@@ -345,6 +342,10 @@
 
             .section-title {
                 font-size: 2rem;
+            }
+
+            .moment-content h4 {
+                font-size: 1.5rem;
             }
         }
 
@@ -363,6 +364,14 @@
 
             .container {
                 padding: 0 15px;
+            }
+
+            .moment-image {
+                height: 280px;
+            }
+
+            .experience-moments {
+                gap: 3rem;
             }
         }
     </style>
@@ -397,19 +406,8 @@
         </div>
     </section>
 
-    <!-- Breadcrumb -->
-    <div class="breadcrumb">
-        <div class="container">
-            <nav class="breadcrumb-nav">
-                <a href="/">Home</a>
-                <span>/</span>
-                <span>Experiences</span>
-            </nav>
-        </div>
-    </div>
-
     <!-- Main Experience Content -->
-    <section class="content-section">
+    <section class="content-section first-content">
         <div class="container">
             <div class="about-text">
                 <p>At L'Oliver Romain, every moment is an invitation to slow down and savor life's simple pleasures. Feel the warmth of ancient stone beneath your feet, breathe in the perfume of wild rosemary and thyme, and let the golden light of late afternoon wash over your skin.</p>
@@ -449,7 +447,7 @@
                 </div>
                 
                 <div class="moment">
-                    <div class="moment-image" style="background-image: url('assets/images/living-room.jpg');"></div>
+                    <div class="moment-image" style="background-image: url('assets/images/facade-pool.jpg');"></div>
                     <div class="moment-content">
                         <h4>Evening Comfort</h4>
                         <p>Retreat to the elegant living spaces where stone walls and wooden beams create an atmosphere of timeless tranquility. Share stories and create memories in spaces that breathe with centuries of history.</p>
@@ -492,7 +490,7 @@
                     </div>
                     <h3>Wine Tasting</h3>
                     <p>Discover the renowned wines of the Rhône Valley with visits to local vineyards and tasting sessions with passionate vintners who share their craft.</p>
-                </div>
+                    </div>
                 <div class="feature">
                     <div class="feature-icon">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
