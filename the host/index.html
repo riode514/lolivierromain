@@ -3,18 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Host - L'Oliver Romain</title>
-    <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Cardo:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <title>Neil Clegg - Your Host | L'Oliver Romain</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --cream: #F5F5F2;
-            --taupe: #342E2E;
-            --olive: #7B8B5A;
-            --lavender: #A08BA5;
-            --soft-white: #FEFEFE;
-            --light-taupe: #6B5F5F;
-        }
-
         * {
             margin: 0;
             padding: 0;
@@ -22,288 +13,489 @@
         }
 
         body {
-            font-family: 'Cardo', serif;
-            line-height: 1.7;
-            color: var(--taupe);
-            background: var(--soft-white);
-            font-size: 1.1rem;
-            padding: 2rem;
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #000;
+            background: #fff;
+            overflow-x: hidden;
         }
 
-        h1, h2 {
-            font-family: 'Marcellus', serif;
-            font-weight: normal;
-            letter-spacing: 0.5px;
-        }
-
-        .host-section {
-            max-width: 1200px;
+        .container {
+            max-width: 1400px;
             margin: 0 auto;
-            padding: 4rem 0;
+            padding: 0 2rem;
         }
 
-        .host-content {
-            display: grid;
-            grid-template-columns: 1fr 1.5fr;
-            gap: 4rem;
+        /* Header Section */
+        .hero-section {
+            min-height: 100vh;
+            display: flex;
             align-items: center;
-        }
-
-        .host-image-container {
             position: relative;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
-            transition: transform 0.3s ease;
+            background: linear-gradient(135deg, #f8f8f8 0%, #ffffff 100%);
         }
 
-        .host-image-container:hover {
-            transform: translateY(-8px);
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6rem;
+            align-items: center;
+            width: 100%;
+        }
+
+        /* Image Section */
+        .image-section {
+            position: relative;
+        }
+
+        .image-wrapper {
+            position: relative;
+            border-radius: 2px;
+            overflow: hidden;
+            box-shadow: 
+                0 0 0 1px rgba(0,0,0,0.1),
+                0 20px 60px rgba(0,0,0,0.15),
+                0 5px 15px rgba(0,0,0,0.1);
         }
 
         .host-image {
             width: 100%;
-            height: 500px;
-            background-size: cover;
-            background-position: center;
-            position: relative;
+            height: 600px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.6s ease;
         }
 
-        .host-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+        .image-wrapper:hover .host-image {
+            transform: scale(1.05);
         }
 
         .host-badge {
             position: absolute;
-            top: 1.5rem;
-            left: 1.5rem;
-            background: var(--olive);
-            color: white;
-            padding: 0.8rem 1.5rem;
-            border-radius: 25px;
-            font-family: 'Marcellus', serif;
-            font-size: 0.9rem;
+            top: 2rem;
+            left: 2rem;
+            background: #000;
+            color: #fff;
+            padding: 0.75rem 2rem;
+            font-weight: 500;
             letter-spacing: 0.5px;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            z-index: 10;
         }
 
-        .host-text {
-            padding: 2rem;
+        /* Text Section */
+        .text-section {
+            padding: 2rem 0;
         }
 
-        .host-text h2 {
-            font-size: 3rem;
+        .host-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 4.5rem;
+            font-weight: 700;
+            color: #000;
             margin-bottom: 1rem;
-            color: var(--taupe);
-            position: relative;
-        }
-
-        .host-text h2::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 0;
-            width: 60px;
-            height: 3px;
-            background: var(--olive);
-            border-radius: 2px;
+            line-height: 0.9;
         }
 
         .host-subtitle {
-            font-style: italic;
-            color: var(--lavender);
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
+            font-size: 1.4rem;
+            color: #666;
+            margin-bottom: 3rem;
+            font-weight: 300;
+            letter-spacing: 0.3px;
         }
 
-        .host-text p {
+        .host-description {
             font-size: 1.1rem;
             line-height: 1.8;
-            color: var(--light-taupe);
+            color: #333;
+            margin-bottom: 2rem;
+            font-weight: 400;
+        }
+
+        /* Expertise Section */
+        .expertise-section {
+            margin-top: 4rem;
+            padding: 4rem 0;
+            background: #000;
+            color: #fff;
+        }
+
+        .expertise-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            font-weight: 600;
+        }
+
+        .expertise-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .expertise-item {
+            text-align: center;
+            padding: 2rem;
+            border: 1px solid #333;
+            transition: all 0.3s ease;
+            background: transparent;
+        }
+
+        .expertise-item:hover {
+            background: #fff;
+            color: #000;
+            transform: translateY(-5px);
+        }
+
+        .expertise-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .expertise-name {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .expertise-desc {
+            font-size: 0.95rem;
+            opacity: 0.8;
+            line-height: 1.5;
+        }
+
+        /* Bio Section */
+        .bio-section {
+            padding: 6rem 0;
+            background: #f9f9f9;
+        }
+
+        .bio-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .bio-stats {
+            background: #fff;
+            padding: 3rem;
+            border: 1px solid #e0e0e0;
+        }
+
+        .stat-item {
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .stat-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+
+        .stat-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #000;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-top: 0.5rem;
+        }
+
+        .bio-text {
+            padding: 1rem 0;
+        }
+
+        .bio-text h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            color: #000;
+        }
+
+        .bio-text p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #333;
             margin-bottom: 1.5rem;
         }
 
-        .host-specialties {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1rem;
-            margin-top: 2rem;
-        }
-
-        .specialty {
-            display: flex;
-            align-items: center;
-            gap: 0.8rem;
-            padding: 1rem;
-            background: var(--cream);
-            border-radius: 12px;
-            transition: transform 0.2s ease;
-        }
-
-        .specialty:hover {
-            transform: translateX(5px);
-        }
-
-        .specialty-icon {
-            font-size: 1.5rem;
-            color: var(--olive);
-        }
-
-        .specialty-text {
-            font-family: 'Marcellus', serif;
-            color: var(--taupe);
-            font-size: 0.95rem;
-        }
-
-        .contact-info {
-            margin-top: 3rem;
-            padding: 2rem;
-            background: linear-gradient(135deg, var(--olive), var(--lavender));
-            border-radius: 16px;
-            color: white;
+        /* Contact Section */
+        .contact-section {
+            padding: 6rem 0;
+            background: #000;
+            color: #fff;
             text-align: center;
         }
 
-        .contact-info h3 {
-            font-family: 'Marcellus', serif;
-            font-size: 1.3rem;
-            margin-bottom: 1rem;
+        .contact-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            margin-bottom: 2rem;
+            font-weight: 600;
         }
 
-        .contact-info p {
+        .contact-text {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto 3rem;
+            line-height: 1.7;
             opacity: 0.9;
-            font-style: italic;
+        }
+
+        .contact-button {
+            display: inline-block;
+            padding: 1rem 3rem;
+            background: #fff;
+            color: #000;
+            text-decoration: none;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+            border: 2px solid #fff;
+        }
+
+        .contact-button:hover {
+            background: transparent;
+            color: #fff;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                gap: 4rem;
+                text-align: center;
+            }
+            
+            .host-title {
+                font-size: 3.5rem;
+            }
+            
+            .bio-content {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
         }
 
         @media (max-width: 768px) {
-            .host-content {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-                text-align: center;
+            .container {
+                padding: 0 1rem;
+            }
+            
+            .host-title {
+                font-size: 2.8rem;
             }
             
             .host-image {
                 height: 400px;
             }
             
-            .host-text h2 {
-                font-size: 2.5rem;
-            }
-            
-            .host-specialties {
+            .expertise-grid {
                 grid-template-columns: 1fr;
             }
             
-            body {
-                padding: 1rem;
+            .contact-title {
+                font-size: 2.2rem;
+            }
+            
+            .hero-content {
+                gap: 2rem;
             }
         }
 
-        /* Animation for text elements */
-        @keyframes fadeInLeft {
+        /* Animations */
+        @keyframes fadeInUp {
             from {
                 opacity: 0;
-                transform: translateX(-30px);
+                transform: translateY(30px);
             }
             to {
                 opacity: 1;
-                transform: translateX(0);
+                transform: translateY(0);
             }
         }
 
-        @keyframes fadeInRight {
-            from {
-                opacity: 0;
-                transform: translateX(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
+        .text-section > * {
+            animation: fadeInUp 0.8s ease forwards;
         }
 
-        .host-text {
-            animation: fadeInRight 0.8s ease forwards;
+        .text-section > *:nth-child(2) {
+            animation-delay: 0.2s;
         }
 
-        .host-image-container {
-            animation: fadeInLeft 0.8s ease forwards;
+        .text-section > *:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        .image-wrapper {
+            animation: fadeInUp 0.8s ease forwards;
         }
     </style>
 </head>
 <body>
-    <div class="host-section">
-        <div class="host-content">
-            <div class="host-image-container">
-                <div class="host-badge">Your Host</div>
-                <div class="host-image">
-                    <img src="assets/images/neil-clegg.webp" alt="Neil Clegg - Your Host">
-                </div>
-            </div>
-            
-            <div class="host-text">
-                <h2>Neil Clegg</h2>
-                <p class="host-subtitle">British expat & Provence enthusiast</p>
-                
-                <p>Meet Neil Clegg, a British host who fell in love with the art de vivre of the South of France. With a deep appreciation for design, comfort, and detail, Neil has curated a haven where every moment feels effortless and warm.</p>
-                
-                <p>His immaculate attention and local insight ensure your stay in the Uzège region is nothing short of exceptional. From restaurant recommendations to hidden gems known only to locals, Neil's guidance will enrich your Provençal experience.</p>
-                
-                <p>Having lived in the region for over a decade, Neil brings both the warmth of British hospitality and the refined taste of French living to every guest's experience.</p>
-                
-                <div class="host-specialties">
-                    <div class="specialty">
-                        <span class="specialty-icon">🍷</span>
-                        <span class="specialty-text">Local Wine Expert</span>
-                    </div>
-                    <div class="specialty">
-                        <span class="specialty-icon">🏛️</span>
-                        <span class="specialty-text">History Enthusiast</span>
-                    </div>
-                    <div class="specialty">
-                        <span class="specialty-icon">🎨</span>
-                        <span class="specialty-text">Design Connoisseur</span>
-                    </div>
-                    <div class="specialty">
-                        <span class="specialty-icon">🥘</span>
-                        <span class="specialty-text">Culinary Guide</span>
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="hero-content">
+                <div class="image-section">
+                    <div class="image-wrapper">
+                        <div class="host-badge">Your Host</div>
+                        <img src="assets/images/neil-clegg.webp" alt="Neil Clegg - Your Host" class="host-image">
                     </div>
                 </div>
                 
-                <div class="contact-info">
-                    <h3>Personal Concierge Service</h3>
-                    <p>Neil is available to arrange everything from private wine tastings to guided tours of nearby châteaux. Your perfect Provençal experience begins with a simple conversation.</p>
+                <div class="text-section">
+                    <h1 class="host-title">Neil Clegg</h1>
+                    <p class="host-subtitle">British Expat & Provence Connoisseur</p>
+                    <p class="host-description">
+                        Meet Neil Clegg, a British host who discovered his calling in the enchanting South of France. With an eye for elegance and a passion for authentic experiences, Neil has created a sanctuary where sophistication meets comfort.
+                    </p>
+                    <p class="host-description">
+                        His deep understanding of the region, combined with impeccable attention to detail, ensures every guest experiences the true essence of Provençal living.
+                    </p>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
+
+    <!-- Expertise Section -->
+    <section class="expertise-section">
+        <div class="container">
+            <h2 class="expertise-title">Areas of Expertise</h2>
+            <div class="expertise-grid">
+                <div class="expertise-item">
+                    <span class="expertise-icon">🍷</span>
+                    <h3 class="expertise-name">Wine Curation</h3>
+                    <p class="expertise-desc">Expert knowledge of local vineyards and exclusive tastings</p>
+                </div>
+                <div class="expertise-item">
+                    <span class="expertise-icon">🏛️</span>
+                    <h3 class="expertise-name">Cultural Heritage</h3>
+                    <p class="expertise-desc">Deep understanding of regional history and hidden gems</p>
+                </div>
+                <div class="expertise-item">
+                    <span class="expertise-icon">🎨</span>
+                    <h3 class="expertise-name">Design & Architecture</h3>
+                    <p class="expertise-desc">Refined aesthetic sense and attention to detail</p>
+                </div>
+                <div class="expertise-item">
+                    <span class="expertise-icon">🥘</span>
+                    <h3 class="expertise-name">Culinary Connections</h3>
+                    <p class="expertise-desc">Access to the finest local restaurants and markets</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bio Section -->
+    <section class="bio-section">
+        <div class="container">
+            <div class="bio-content">
+                <div class="bio-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">10+</span>
+                        <span class="stat-label">Years in Provence</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">500+</span>
+                        <span class="stat-label">Happy Guests</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">24/7</span>
+                        <span class="stat-label">Concierge Service</span>
+                    </div>
+                </div>
+                
+                <div class="bio-text">
+                    <h3>A Passion for Excellence</h3>
+                    <p>
+                        Neil's journey to Provence began over a decade ago when he fell in love with the region's timeless beauty and refined way of life. What started as a personal passion has evolved into a mission to share the authentic spirit of the South of France with discerning travelers.
+                    </p>
+                    <p>
+                        With an extensive network of local artisans, vintners, and cultural guides, Neil offers access to experiences that go far beyond the typical tourist trail. From private château tours to exclusive wine cellars, every recommendation comes from years of personal exploration and genuine relationships.
+                    </p>
+                    <p>
+                        His British sensibility for service, combined with a deep appreciation for French culture, creates the perfect balance of comfort and authenticity that defines the L'Oliver Romain experience.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section">
+        <div class="container">
+            <h2 class="contact-title">Your Personal Concierge</h2>
+            <p class="contact-text">
+                Neil is dedicated to crafting unforgettable experiences tailored to your preferences. From restaurant reservations to cultural excursions, your perfect Provençal getaway begins with a conversation.
+            </p>
+            <a href="#contact" class="contact-button">Get in Touch</a>
+        </div>
+    </section>
 
     <script>
-        // Add interactive elements
-        const specialties = document.querySelectorAll('.specialty');
-        
-        specialties.forEach(specialty => {
-            specialty.addEventListener('mouseenter', function() {
-                this.style.backgroundColor = 'var(--olive)';
-                this.style.color = 'white';
-                this.querySelector('.specialty-icon').style.color = 'white';
+        // Smooth scroll effect
+        document.addEventListener('DOMContentLoaded', function() {
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+
+            // Observe elements for animation
+            const animateElements = document.querySelectorAll('.expertise-item, .stat-item, .bio-text p');
+            animateElements.forEach(el => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(20px)';
+                el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(el);
             });
-            
-            specialty.addEventListener('mouseleave', function() {
-                this.style.backgroundColor = 'var(--cream)';
-                this.style.color = 'var(--taupe)';
-                this.querySelector('.specialty-icon').style.color = 'var(--olive)';
+
+            // Parallax effect for hero image
+            window.addEventListener('scroll', function() {
+                const scrolled = window.pageYOffset;
+                const parallax = document.querySelector('.host-image');
+                const speed = scrolled * 0.1;
+                
+                if (parallax) {
+                    parallax.style.transform = `scale(1.05) translateY(${speed}px)`;
+                }
             });
         });
 
-        // Parallax effect for image
-        const hostImage = document.querySelector('.host-image-container');
-        
-        window.addEventListener('scroll', () => {
-            const scrolled = window.pageYOffset;
-            const parallax = scrolled * 0.1;
-            hostImage.style.transform = `translateY(${parallax}px)`;
+        // Interactive hover effects
+        const expertiseItems = document.querySelectorAll('.expertise-item');
+        expertiseItems.forEach(item => {
+            item.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-10px) scale(1.02)';
+            });
+            
+            item.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(-5px) scale(1)';
+            });
         });
     </script>
 </body>
