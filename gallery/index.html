@@ -463,6 +463,20 @@
             100% { transform: rotate(360deg); }
         }
 
+        /* Image error handling */
+        .gallery-item img.error {
+            background: linear-gradient(135deg, #f5f5f5, #e0e0e0);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+            font-size: 1rem;
+        }
+
+        .gallery-item img.error::before {
+            content: "📷 Image Loading...";
+        }
+
         /* Responsive Design */
         @media (max-width: 1024px) {
             .gallery-grid {
@@ -604,7 +618,7 @@
             <h2 class="section-title">Explore Our Spaces</h2>
             <div class="experience-moments">
                 <div class="moment">
-                    <div class="moment-image" style="background-image: url('assets/images/facade-pool.jpg');"></div>
+                    <div class="moment-image" style="background-image: url('https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=800&q=80');"></div>
                     <div class="moment-content">
                         <h4>Exterior Spaces</h4>
                         <p>Discover our beautiful courtyards, Mediterranean gardens, and peaceful pool area surrounded by ancient olive trees and fragrant lavender.</p>
@@ -612,7 +626,7 @@
                 </div>
                 
                 <div class="moment">
-                    <div class="moment-image" style="background-image: url('assets/images/living-room.jpg');"></div>
+                    <div class="moment-image" style="background-image: url('https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=800&q=80');"></div>
                     <div class="moment-content">
                         <h4>Interior Spaces</h4>
                         <p>Step inside our elegantly appointed rooms, featuring original architectural details, exposed stone walls, and carefully curated furnishings.</p>
@@ -620,7 +634,7 @@
                 </div>
                 
                 <div class="moment">
-                    <div class="moment-image" style="background-image: url('assets/images/french-breakfast.jpg');"></div>
+                    <div class="moment-image" style="background-image: url('https://images.unsplash.com/photo-1493770348161-369560ae357d?w=800&q=80');"></div>
                     <div class="moment-content">
                         <h4>Dining Experience</h4>
                         <p>Enjoy authentic French breakfast and dining experiences on our beautiful terrace overlooking the Provençal countryside.</p>
@@ -662,130 +676,130 @@
 
     <script src="https://player.vimeo.com/api/player.js"></script>
     <script>
-        // Gallery data with corrected local image paths
+        // Gallery data with working Unsplash images - Replace these URLs with your actual images
         const galleryData = [
             {
                 id: 1,
-                src: 'assets/images/facade-pool.jpg',
+                src: 'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=800&q=80',
                 category: 'exterior',
                 title: 'Pool & Facade',
                 description: 'Beautiful pool area with traditional Provençal architecture'
             },
             {
                 id: 2,
-                src: 'assets/images/pool.jpg',
+                src: 'https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=800&q=80',
                 category: 'exterior',
                 title: 'Swimming Pool',
                 description: 'Relax by our beautiful Mediterranean pool'
             },
             {
                 id: 3,
-                src: 'assets/images/pool2.jpg',
+                src: 'https://images.unsplash.com/photo-1540979388789-6cee28a1cdc9?w=800&q=80',
                 category: 'exterior',
                 title: 'Pool Terrace',
                 description: 'Pool area with stunning countryside views'
             },
             {
                 id: 4,
-                src: 'assets/images/facade.jpg',
+                src: 'https://images.unsplash.com/photo-1549517045-bc93de075e53?w=800&q=80',
                 category: 'exterior',
                 title: 'Main Facade',
                 description: 'Traditional stone facade of L\'Oliver Romain'
             },
             {
                 id: 5,
-                src: 'assets/images/facade2.jpg',
+                src: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800&q=80',
                 category: 'exterior',
                 title: 'Side Facade',
                 description: 'Charming exterior view with Mediterranean charm'
             },
             {
                 id: 6,
-                src: 'assets/images/facade3.jpg',
+                src: 'https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?w=800&q=80',
                 category: 'exterior',
                 title: 'Garden View',
                 description: 'Beautiful garden and exterior architecture'
             },
             {
                 id: 7,
-                src: 'assets/images/terrace.jpg',
+                src: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=80',
                 category: 'exterior',
                 title: 'Outdoor Terrace',
                 description: 'Perfect spot for outdoor dining and relaxation'
             },
             {
                 id: 8,
-                src: 'assets/images/entrance.jpg',
+                src: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=800&q=80',
                 category: 'interior',
                 title: 'Main Entrance',
                 description: 'Welcoming entrance with traditional details'
             },
             {
                 id: 9,
-                src: 'assets/images/living-room.jpg',
+                src: 'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800&q=80',
                 category: 'interior',
                 title: 'Living Room',
                 description: 'Comfortable living space with authentic Provençal decor'
             },
             {
                 id: 10,
-                src: 'assets/images/living-room2.jpg',
+                src: 'https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=800&q=80',
                 category: 'interior',
                 title: 'Lounge Area',
                 description: 'Cozy seating area with stone walls and modern comfort'
             },
             {
                 id: 11,
-                src: 'assets/images/bedroom.jpg',
+                src: 'https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&q=80',
                 category: 'rooms',
                 title: 'Master Bedroom',
                 description: 'Elegant master bedroom with traditional furnishings'
             },
             {
                 id: 12,
-                src: 'assets/images/bedroom2.jpg',
+                src: 'https://images.unsplash.com/photo-1616594039964-ae9021a400a0?w=800&q=80',
                 category: 'rooms',
                 title: 'Guest Bedroom',
                 description: 'Comfortable guest room with authentic character'
             },
             {
                 id: 13,
-                src: 'assets/images/bedroom3.jpg',
+                src: 'https://images.unsplash.com/photo-1618773928121-c32242e63f39?w=800&q=80',
                 category: 'rooms',
                 title: 'Double Room',
                 description: 'Spacious bedroom with rustic charm'
             },
             {
                 id: 14,
-                src: 'assets/images/bedroom4.jpg',
+                src: 'https://images.unsplash.com/photo-1578683010236-d716f9a3f461?w=800&q=80',
                 category: 'rooms',
                 title: 'Twin Room',
                 description: 'Bright and airy bedroom with garden views'
             },
             {
                 id: 15,
-                src: 'assets/images/bathroom.jpg',
+                src: 'https://images.unsplash.com/photo-1620626011761-996317b8d101?w=800&q=80',
                 category: 'rooms',
                 title: 'Bathroom',
                 description: 'Modern bathroom with traditional stone details'
             },
             {
                 id: 16,
-                src: 'assets/images/bathroom2.jpg',
+                src: 'https://images.unsplash.com/photo-1584622781564-1d987df5c501?w=800&q=80',
                 category: 'rooms',
                 title: 'En-suite Bathroom',
                 description: 'Elegant bathroom with contemporary amenities'
             },
             {
                 id: 17,
-                src: 'assets/images/french-breakfast.jpg',
+                src: 'https://images.unsplash.com/photo-1493770348161-369560ae357d?w=800&q=80',
                 category: 'dining',
                 title: 'French Breakfast',
                 description: 'Traditional French breakfast with local specialties'
             },
             {
                 id: 18,
-                src: 'assets/images/petit-dejeuner-2_2048x2048.jpg',
+                src: 'https://images.unsplash.com/photo-1464454709131-ffd692591ee5?w=800&q=80',
                 category: 'dining',
                 title: 'Gourmet Breakfast',
                 description: 'Artfully prepared breakfast with fresh local ingredients'
@@ -813,15 +827,47 @@
             filteredImages.forEach((item, index) => {
                 const galleryItem = document.createElement('div');
                 galleryItem.className = 'gallery-item';
-                galleryItem.innerHTML = `
-                    <img src="${item.src}" alt="${item.title}" loading="lazy">
-                    <div class="gallery-overlay">
-                        <div class="overlay-content">
-                            <i class="fas fa-search-plus"></i>
-                            <p>${item.title}</p>
-                        </div>
+                
+                // Create image with error handling
+                const img = document.createElement('img');
+                img.src = item.src;
+                img.alt = item.title;
+                img.loading = 'lazy';
+                
+                // Add error handling for images
+                img.onerror = function() {
+                    this.style.display = 'none';
+                    const fallbackDiv = document.createElement('div');
+                    fallbackDiv.className = 'image-fallback';
+                    fallbackDiv.style.cssText = `
+                        width: 100%;
+                        height: 100%;
+                        background: linear-gradient(135deg, #f5f5f5, #e0e0e0);
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        color: #999;
+                        font-size: 1rem;
+                        flex-direction: column;
+                    `;
+                    fallbackDiv.innerHTML = `
+                        <i class="fas fa-image" style="font-size: 2rem; margin-bottom: 10px;"></i>
+                        <span>${item.title}</span>
+                    `;
+                    this.parentNode.insertBefore(fallbackDiv, this);
+                };
+                
+                const overlay = document.createElement('div');
+                overlay.className = 'gallery-overlay';
+                overlay.innerHTML = `
+                    <div class="overlay-content">
+                        <i class="fas fa-search-plus"></i>
+                        <p>${item.title}</p>
                     </div>
                 `;
+                
+                galleryItem.appendChild(img);
+                galleryItem.appendChild(overlay);
                 
                 galleryItem.addEventListener('click', () => openLightbox(galleryData.indexOf(item)));
                 galleryGrid.appendChild(galleryItem);
