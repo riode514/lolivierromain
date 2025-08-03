@@ -25,16 +25,16 @@
             padding: 0 20px;
         }
 
-        /* Header Styles */
+        /* Header Styles - Now overlays the hero */
         #header {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(15px);
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
             z-index: 1000;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
         }
 
         nav {
@@ -134,31 +134,9 @@
             transform: rotate(-45deg) translate(6px, -6px);
         }
 
-        /* Breadcrumb */
-        .breadcrumb {
-            margin-top: 80px;
-            padding: 1rem 0;
-            background: #f8f8f8;
-            border-bottom: 1px solid #eee;
-        }
-
-        .breadcrumb-nav {
-            font-size: 0.9rem;
-            color: #666;
-        }
-
-        .breadcrumb-nav a {
-            color: #000;
-            text-decoration: none;
-        }
-
-        .breadcrumb-nav span {
-            margin: 0 0.5rem;
-        }
-
-        /* Page Header */
+        /* Full Height Page Header - No more breadcrumb */
         .page-header {
-            height: 60vh;
+            height: 100vh;
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -166,6 +144,7 @@
             align-items: center;
             justify-content: center;
             position: relative;
+            background-image: url('https://images.unsplash.com/photo-1564013799919-ab600027ffc6?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
         }
 
         .page-header::before {
@@ -188,13 +167,13 @@
 
         .page-header-content h1 {
             font-family: 'Marcellus', serif;
-            font-size: 3.5rem;
+            font-size: 4rem;
             margin-bottom: 1rem;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
         }
 
         .page-header-content .subtitle {
-            font-size: 1.3rem;
+            font-size: 1.5rem;
             font-style: italic;
             text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
         }
@@ -233,6 +212,7 @@
             background-repeat: no-repeat;
             border-radius: 10px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            background-image: url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=687&q=80');
         }
 
         .host-text h2 {
@@ -338,11 +318,11 @@
 
         @media (max-width: 768px) {
             .page-header-content h1 {
-                font-size: 2.5rem;
+                font-size: 3rem;
             }
 
             .page-header-content .subtitle {
-                font-size: 1.1rem;
+                font-size: 1.2rem;
             }
 
             .host-content {
@@ -369,12 +349,12 @@
         }
 
         @media (max-width: 480px) {
-            .page-header {
-                height: 50vh;
+            .page-header-content h1 {
+                font-size: 2.5rem;
             }
 
-            .page-header-content h1 {
-                font-size: 2rem;
+            .page-header-content .subtitle {
+                font-size: 1rem;
             }
 
             .feature {
@@ -388,7 +368,7 @@
     </style>
 </head>
 <body>
-    <!-- Header -->
+    <!-- Header - Now overlays the hero -->
     <header id="header">
         <nav>
             <a href="../" class="logo">L'Oliver Romain</a>
@@ -409,19 +389,8 @@
         </nav>
     </header>
 
-    <!-- Breadcrumb -->
-    <div class="breadcrumb">
-        <div class="container">
-            <nav class="breadcrumb-nav">
-                <a href="../">Home</a>
-                <span>/</span>
-                <span>The Host</span>
-            </nav>
-        </div>
-    </div>
-
-    <!-- Page Header -->
-    <section class="page-header" style="background-image: url('../assets/images/facade2.jpg');">
+    <!-- Full Height Hero - No breadcrumb -->
+    <section class="page-header">
         <div class="page-header-content">
             <h1>Your Host</h1>
             <p class="subtitle">Meet Neil Clegg</p>
@@ -432,7 +401,7 @@
     <section class="content-section">
         <div class="container">
             <div class="host-content">
-                <div class="host-image" style="background-image: url('../assets/images/neil-clegg.webp');"></div>
+                <div class="host-image"></div>
                 <div class="host-text">
                     <h2>Neil Clegg</h2>
                     <p>Meet Neil Clegg, a British host who fell in love with the art de vivre of the South of France. With a deep appreciation for design, comfort, and detail, Neil has curated a haven where every moment feels effortless and warm.</p>
