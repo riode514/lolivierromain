@@ -5,7 +5,474 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gallery | L'Oliver Romain</title>
     <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Cardo:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Cardo', serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #fefefe;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        #header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 40px;
+        }
+
+        .logo {
+            font-family: 'Marcellus', serif;
+            font-size: 1.8rem;
+            color: #000;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            display: none;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(20px);
+            flex-direction: column;
+            padding: 2rem 0;
+            transform: translateY(-10px);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-links.active {
+            display: flex;
+            transform: translateY(0);
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .nav-links li {
+            margin: 0.5rem 0;
+            text-align: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            padding: 0.8rem 1rem;
+            display: block;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: #000;
+            background: rgba(0, 0, 0, 0.05);
+        }
+
+        .nav-links li:last-child a {
+            border-bottom: none;
+        }
+
+        .mobile-toggle {
+            display: flex;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 4px;
+        }
+
+        .mobile-toggle span {
+            width: 25px;
+            height: 3px;
+            background: #000;
+            transition: 0.3s;
+        }
+
+        .mobile-toggle.active span:nth-child(1) {
+            transform: rotate(45deg) translate(6px, 6px);
+        }
+
+        .mobile-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .mobile-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(6px, -6px);
+        }
+
+        /* Breadcrumb */
+        .breadcrumb {
+            margin-top: 80px;
+            padding: 20px 0;
+            background-color: #f8f8f8;
+        }
+
+        .breadcrumb-nav {
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .breadcrumb-nav a {
+            text-decoration: none;
+            color: #000;
+        }
+
+        .breadcrumb-nav span {
+            margin: 0 10px;
+        }
+
+        /* Page Header */
+        .page-header {
+            height: 400px;
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+            filter: grayscale(100%);
+        }
+
+        .page-header h1 {
+            font-family: 'Marcellus', serif;
+            font-size: 3.5rem;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        /* Gallery Section */
+        .content-section {
+            padding: 60px 0;
+        }
+
+        .section-title {
+            font-family: 'Marcellus', serif;
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 50px;
+            color: #000;
+        }
+
+        /* Gallery Filter */
+        .gallery-filter {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .filter-btn {
+            padding: 12px 24px;
+            background: transparent;
+            border: 2px solid #000;
+            color: #000;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Cardo', serif;
+            font-size: 1rem;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: #000;
+            color: white;
+        }
+
+        /* Gallery Grid */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 60px;
+        }
+
+        .gallery-item {
+            position: relative;
+            height: 250px;
+            border-radius: 10px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            filter: grayscale(100%);
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+            filter: grayscale(50%);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.6));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        .overlay-content {
+            text-align: center;
+        }
+
+        .overlay-content i {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .overlay-content p {
+            font-size: 1.1rem;
+        }
+
+        /* Lightbox */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .lightbox.active {
+            display: flex;
+        }
+
+        .lightbox-content {
+            position: relative;
+            max-width: 90%;
+            max-height: 90%;
+        }
+
+        .lightbox img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            border-radius: 10px;
+            filter: grayscale(100%);
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .lightbox-close:hover {
+            color: #999;
+        }
+
+        .lightbox-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+            transition: color 0.3s ease;
+            user-select: none;
+        }
+
+        .lightbox-nav:hover {
+            color: #999;
+        }
+
+        .lightbox-prev {
+            left: -60px;
+        }
+
+        .lightbox-next {
+            right: -60px;
+        }
+
+        /* Experience Moments */
+        .experience-moments {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .moment {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .moment:hover {
+            transform: translateY(-10px);
+        }
+
+        .moment-image {
+            height: 250px;
+            background-size: cover;
+            background-position: center;
+            filter: grayscale(100%);
+        }
+
+        .moment-content {
+            padding: 30px;
+        }
+
+        .moment-content h4 {
+            font-family: 'Marcellus', serif;
+            font-size: 1.5rem;
+            color: #000;
+            margin-bottom: 15px;
+        }
+
+        .moment-content p {
+            line-height: 1.8;
+            color: #666;
+        }
+
+        /* About Text */
+        .about-text {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .about-text p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            color: #666;
+        }
+
+        /* Footer */
+        footer {
+            background: #000;
+            color: white;
+            text-align: center;
+            padding: 40px 0;
+        }
+
+        .footer-contact {
+            margin-top: 10px;
+            opacity: 0.8;
+        }
+
+        /* Loading Animation */
+        .loading {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid #000;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 20px auto;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .page-header h1 {
+                font-size: 2.5rem;
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 15px;
+            }
+
+            .gallery-item {
+                height: 200px;
+            }
+
+            .experience-moments {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .lightbox-nav {
+                font-size: 1.5rem;
+            }
+
+            .lightbox-prev {
+                left: -40px;
+            }
+
+            .lightbox-next {
+                right: -40px;
+            }
+        }
+    </style>
 </head>
 <body>
     <!-- Header -->
@@ -41,29 +508,31 @@
     </div>
 
     <!-- Page Header -->
-    <section class="page-header" style="background-image: url('assets/images/gallery-header.jpg');">
+    <section class="page-header">
         <div class="page-header-content">
             <h1>Gallery</h1>
             <p class="subtitle">Glimpses of Provençal paradise</p>
         </div>
     </section>
 
-    <!-- Gallery Grid -->
+    <!-- Gallery Section -->
     <section class="content-section">
         <div class="container">
-            <div class="gallery-grid">
-                <div class="gallery-item" style="background-image: url('assets/images/gallery-1.jpg');"></div>
-                <div class="gallery-item" style="background-image: url('assets/images/gallery-2.jpg');"></div>
-                <div class="gallery-item" style="background-image: url('assets/images/gallery-3.jpg');"></div>
-                <div class="gallery-item" style="background-image: url('assets/images/gallery-4.jpg');"></div>
-                <div class="gallery-item" style="background-image: url('assets/images/gallery-5.jpg');"></div>
-                <div class="gallery-item" style="background-image: url('assets/images/gallery-6.jpg');"></div>
-                <div class="gallery-item" style="background-image: url('assets/images/gallery-7.jpg');"></div>
-                <div class="gallery-item" style="background-image: url('assets/images/gallery-8.jpg');"></div>
-                <div class="gallery-item" style="background-image: url('assets/images/gallery-9.jpg');"></div>
-                <div class="gallery-item" style="background-image: url('assets/images/gallery-10.jpg');"></div>
-                <div class="gallery-item" style="background-image: url('assets/images/gallery-11.jpg');"></div>
-                <div class="gallery-item" style="background-image: url('assets/images/gallery-12.jpg');"></div>
+            <h2 class="section-title">Our Photo Collection</h2>
+            
+            <!-- Gallery Filter -->
+            <div class="gallery-filter">
+                <button class="filter-btn active" data-filter="all">All Photos</button>
+                <button class="filter-btn" data-filter="exterior">Exterior</button>
+                <button class="filter-btn" data-filter="interior">Interior</button>
+                <button class="filter-btn" data-filter="rooms">Rooms</button>
+                <button class="filter-btn" data-filter="dining">Dining</button>
+                <button class="filter-btn" data-filter="local">Local Area</button>
+            </div>
+
+            <!-- Gallery Grid -->
+            <div class="gallery-grid" id="galleryGrid">
+                <!-- Gallery items will be loaded here by JavaScript -->
             </div>
         </div>
     </section>
@@ -74,7 +543,7 @@
             <h2 class="section-title">Explore Our Spaces</h2>
             <div class="experience-moments">
                 <div class="moment">
-                    <div class="moment-image" style="background-image: url('assets/images/exterior-spaces.jpg');"></div>
+                    <div class="moment-image" style="background-image: url('https://images.unsplash.com/photo-1544966503-7cc5ac882d5e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
                     <div class="moment-content">
                         <h4>Exterior Spaces</h4>
                         <p>Discover our beautiful courtyards, Mediterranean gardens, and peaceful pool area surrounded by ancient olive trees and fragrant lavender.</p>
@@ -82,7 +551,7 @@
                 </div>
                 
                 <div class="moment">
-                    <div class="moment-image" style="background-image: url('assets/images/interior-spaces.jpg');"></div>
+                    <div class="moment-image" style="background-image: url('https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
                     <div class="moment-content">
                         <h4>Interior Spaces</h4>
                         <p>Step inside our elegantly appointed rooms, featuring original architectural details, exposed stone walls, and carefully curated furnishings.</p>
@@ -90,7 +559,7 @@
                 </div>
                 
                 <div class="moment">
-                    <div class="moment-image" style="background-image: url('assets/images/local-area.jpg');"></div>
+                    <div class="moment-image" style="background-image: url('https://images.unsplash.com/photo-1503614472-8c93d56cd601?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
                     <div class="moment-content">
                         <h4>Local Area</h4>
                         <p>Explore the charming village of Saint-Siffret and the surrounding Languedoc countryside, with its vineyards, markets, and historic towns.</p>
@@ -112,6 +581,16 @@
         </div>
     </section>
 
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <div class="lightbox-content">
+            <span class="lightbox-close" id="lightboxClose">&times;</span>
+            <span class="lightbox-nav lightbox-prev" id="lightboxPrev">&#8249;</span>
+            <span class="lightbox-nav lightbox-next" id="lightboxNext">&#8250;</span>
+            <img id="lightboxImage" src="" alt="">
+        </div>
+    </div>
+
     <!-- Footer -->
     <footer>
         <div class="container">
@@ -120,6 +599,255 @@
         </div>
     </footer>
 
-    <script src="assets/js/main.js"></script>
+    <script>
+        // Gallery data with high-quality images
+        const galleryData = [
+            {
+                id: 1,
+                src: 'https://images.unsplash.com/photo-1582719508461-905c673771fd?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80',
+                category: 'exterior',
+                title: 'Mediterranean Pool Area',
+                description: 'Relax by our beautiful pool surrounded by olive trees'
+            },
+            {
+                id: 2,
+                src: 'https://images.unsplash.com/photo-1571896349842-33c89424de2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80',
+                category: 'interior',
+                title: 'Elegant Living Room',
+                description: 'Comfortable seating area with traditional Provençal decor'
+            },
+            {
+                id: 3,
+                src: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80',
+                category: 'rooms',
+                title: 'Master Bedroom',
+                description: 'Luxurious bedroom with stone walls and modern amenities'
+            },
+            {
+                id: 4,
+                src: 'https://images.unsplash.com/photo-1544966503-7cc5ac882d5e?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80',
+                category: 'exterior',
+                title: 'Garden Courtyard',
+                description: 'Peaceful courtyard with lavender and Mediterranean plants'
+            },
+            {
+                id: 5,
+                src: 'https://images.unsplash.com/photo-1556909114-4dc39de8e19b?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80',
+                category: 'dining',
+                title: 'Breakfast Terrace',
+                description: 'Start your day with breakfast on our sunny terrace'
+            },
+            {
+                id: 6,
+                src: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80',
+                category: 'interior',
+                title: 'Stone Kitchen',
+                description: 'Authentic stone kitchen with modern appliances'
+            },
+            {
+                id: 7,
+                src: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80',
+                category: 'rooms',
+                title: 'Guest Bedroom',
+                description: 'Comfortable guest room with traditional furnishings'
+            },
+            {
+                id: 8,
+                src: 'https://images.unsplash.com/photo-1503614472-8c93d56cd601?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80',
+                category: 'local',
+                title: 'Village Streets',
+                description: 'Charming cobblestone streets of Saint-Siffret'
+            },
+            {
+                id: 9,
+                src: 'https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80',
+                category: 'exterior',
+                title: 'Olive Grove',
+                description: 'Ancient olive trees surrounding the property'
+            },
+            {
+                id: 10,
+                src: 'https://images.unsplash.com/photo-1561501900-3701fa6a0864?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80',
+                category: 'dining',
+                title: 'Wine Cellar',
+                description: 'Curated selection of local Languedoc wines'
+            },
+            {
+                id: 11,
+                src: 'https://images.unsplash.com/photo-1582719508461-905c673771fd?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80',
+                category: 'exterior',
+                title: 'Evening Pool',
+                description: 'Romantic evening ambiance by the pool'
+            },
+            {
+                id: 12,
+                src: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80',
+                category: 'interior',
+                title: 'Reading Nook',
+                description: 'Quiet corner perfect for reading and relaxation'
+            },
+            {
+                id: 13,
+                src: 'https://images.unsplash.com/photo-1571896349842-33c89424de2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80',
+                category: 'rooms',
+                title: 'Bathroom Luxury',
+                description: 'Elegant bathroom with stone details'
+            },
+            {
+                id: 14,
+                src: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80',
+                category: 'local',
+                title: 'Vineyard Views',
+                description: 'Rolling hills and vineyards of Languedoc'
+            },
+            {
+                id: 15,
+                src: 'https://images.unsplash.com/photo-1544966503-7cc5ac882d5e?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80',
+                category: 'exterior',
+                title: 'Garden Paths',
+                description: 'Winding paths through Mediterranean gardens'
+            },
+            {
+                id: 16,
+                src: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80',
+                category: 'dining',
+                title: 'Outdoor Dining',
+                description: 'Al fresco dining under the stars'
+            }
+        ];
+
+        let currentImageIndex = 0;
+        let currentFilter = 'all';
+
+        // Initialize gallery
+        function initGallery() {
+            renderGallery();
+            setupEventListeners();
+        }
+
+        // Render gallery based on current filter
+        function renderGallery() {
+            const galleryGrid = document.getElementById('galleryGrid');
+            const filteredImages = currentFilter === 'all' 
+                ? galleryData 
+                : galleryData.filter(item => item.category === currentFilter);
+
+            galleryGrid.innerHTML = '';
+
+            filteredImages.forEach((item, index) => {
+                const galleryItem = document.createElement('div');
+                galleryItem.className = 'gallery-item';
+                galleryItem.innerHTML = `
+                    <img src="${item.src}" alt="${item.title}" loading="lazy">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <i class="fas fa-search-plus"></i>
+                            <p>${item.title}</p>
+                        </div>
+                    </div>
+                `;
+                
+                galleryItem.addEventListener('click', () => openLightbox(galleryData.indexOf(item)));
+                galleryGrid.appendChild(galleryItem);
+            });
+        }
+
+        // Setup event listeners
+        function setupEventListeners() {
+            // Filter buttons
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    currentFilter = btn.dataset.filter;
+                    renderGallery();
+                });
+            });
+
+            // Lightbox controls
+            document.getElementById('lightboxClose').addEventListener('click', closeLightbox);
+            document.getElementById('lightboxPrev').addEventListener('click', () => navigateLightbox(-1));
+            document.getElementById('lightboxNext').addEventListener('click', () => navigateLightbox(1));
+            
+            // Close lightbox on outside click
+            document.getElementById('lightbox').addEventListener('click', (e) => {
+                if (e.target.id === 'lightbox') {
+                    closeLightbox();
+                }
+            });
+
+            // Keyboard navigation
+            document.addEventListener('keydown', (e) => {
+                if (document.getElementById('lightbox').classList.contains('active')) {
+                    if (e.key === 'Escape') closeLightbox();
+                    if (e.key === 'ArrowLeft') navigateLightbox(-1);
+                    if (e.key === 'ArrowRight') navigateLightbox(1);
+                }
+            });
+
+            // Mobile menu toggle
+            const mobileToggle = document.querySelector('.mobile-toggle');
+            const navLinks = document.querySelector('.nav-links');
+            mobileToggle.addEventListener('click', () => {
+                mobileToggle.classList.toggle('active');
+                navLinks.classList.toggle('active');
+            });
+
+            // Close menu when clicking outside
+            document.addEventListener('click', function(event) {
+                if (!mobileToggle.contains(event.target) && !navLinks.contains(event.target)) {
+                    mobileToggle.classList.remove('active');
+                    navLinks.classList.remove('active');
+                }
+            });
+
+            // Close menu when clicking on a link
+            const links = document.querySelectorAll('.nav-links a');
+            links.forEach(link => {
+                link.addEventListener('click', function() {
+                    mobileToggle.classList.remove('active');
+                    navLinks.classList.remove('active');
+                });
+            });
+        }
+
+        // Open lightbox
+        function openLightbox(index) {
+            currentImageIndex = index;
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImage = document.getElementById('lightboxImage');
+            
+            lightboxImage.src = galleryData[index].src;
+            lightboxImage.alt = galleryData[index].title;
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        // Close lightbox
+        function closeLightbox() {
+            const lightbox = document.getElementById('lightbox');
+            lightbox.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Navigate lightbox
+        function navigateLightbox(direction) {
+            currentImageIndex += direction;
+            
+            if (currentImageIndex >= galleryData.length) {
+                currentImageIndex = 0;
+            } else if (currentImageIndex < 0) {
+                currentImageIndex = galleryData.length - 1;
+            }
+            
+            const lightboxImage = document.getElementById('lightboxImage');
+            lightboxImage.src = galleryData[currentImageIndex].src;
+            lightboxImage.alt = galleryData[currentImageIndex].title;
+        }
+
+        // Initialize when DOM is loaded
+        document.addEventListener('DOMContentLoaded', initGallery);
+    </script>
 </body>
 </html>
