@@ -249,6 +249,7 @@
             cursor: pointer;
             transition: all 0.3s ease;
             box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            background: linear-gradient(135deg, #f5f5f5, #e0e0e0);
         }
 
         .gallery-item:hover {
@@ -298,6 +299,31 @@
         .overlay-content p {
             font-size: 1.2rem;
             font-weight: 500;
+        }
+
+        /* Image fallback */
+        .image-fallback {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #f5f5f5, #e0e0e0);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+            font-size: 1rem;
+            flex-direction: column;
+        }
+
+        .image-fallback i {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            opacity: 0.7;
+        }
+
+        .image-fallback span {
+            font-weight: 500;
+            text-align: center;
+            padding: 0 20px;
         }
 
         /* Lightbox */
@@ -401,6 +427,7 @@
             height: 280px;
             background-size: cover;
             background-position: center;
+            background-color: #f0f0f0;
         }
 
         .moment-content {
@@ -461,20 +488,6 @@
         @keyframes spin {
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
-        }
-
-        /* Image error handling */
-        .gallery-item img.error {
-            background: linear-gradient(135deg, #f5f5f5, #e0e0e0);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #999;
-            font-size: 1rem;
-        }
-
-        .gallery-item img.error::before {
-            content: "📷 Image Loading...";
         }
 
         /* Responsive Design */
@@ -582,7 +595,7 @@
     <section class="page-header">
         <div class="hero-video">
             <div style="padding:56.25% 0 0 0;position:relative;">
-                <iframe src="https://player.vimeo.com/video/1106862027?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&autoplay=1&muted=1&loop=1" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="uzes"></iframe>
+                <iframe src="https://player.vimeo.com/video/1106862027?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&autoplay=1&muted=1&loop=1&background=1&controls=0&title=0&byline=0&portrait=0" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="uzes"></iframe>
             </div>
         </div>
         <div class="page-header-content">
@@ -618,7 +631,7 @@
             <h2 class="section-title">Explore Our Spaces</h2>
             <div class="experience-moments">
                 <div class="moment">
-                    <div class="moment-image" style="background-image: url('assets/images/facade-pool.jpg');"></div>
+                    <div class="moment-image" style="background-image: url('./assets/images/facade-pool.jpg');"></div>
                     <div class="moment-content">
                         <h4>Exterior Spaces</h4>
                         <p>Discover our beautiful courtyards, Mediterranean gardens, and peaceful pool area surrounded by ancient olive trees and fragrant lavender.</p>
@@ -626,7 +639,7 @@
                 </div>
                 
                 <div class="moment">
-                    <div class="moment-image" style="background-image: url('assets/images/living-room.jpg');"></div>
+                    <div class="moment-image" style="background-image: url('./assets/images/living-room.jpg');"></div>
                     <div class="moment-content">
                         <h4>Interior Spaces</h4>
                         <p>Step inside our elegantly appointed rooms, featuring original architectural details, exposed stone walls, and carefully curated furnishings.</p>
@@ -634,7 +647,7 @@
                 </div>
                 
                 <div class="moment">
-                    <div class="moment-image" style="background-image: url('assets/images/french-breakfast.jpg');"></div>
+                    <div class="moment-image" style="background-image: url('./assets/images/french-breakfast.jpg');"></div>
                     <div class="moment-content">
                         <h4>Dining Experience</h4>
                         <p>Enjoy authentic French breakfast and dining experiences on our beautiful terrace overlooking the Provençal countryside.</p>
@@ -680,126 +693,126 @@
         const galleryData = [
             {
                 id: 1,
-                src: 'assets/images/facade-pool.jpg',
+                src: './assets/images/facade-pool.jpg',
                 category: 'exterior',
                 title: 'Pool & Facade',
                 description: 'Beautiful pool area with traditional Provençal architecture'
             },
             {
                 id: 2,
-                src: 'assets/images/pool.jpg',
+                src: './assets/images/pool.jpg',
                 category: 'exterior',
                 title: 'Swimming Pool',
                 description: 'Relax by our beautiful Mediterranean pool'
             },
             {
                 id: 3,
-                src: 'assets/images/pool2.jpg',
+                src: './assets/images/pool2.jpg',
                 category: 'exterior',
                 title: 'Pool Terrace',
                 description: 'Pool area with stunning countryside views'
             },
             {
                 id: 4,
-                src: 'assets/images/facade.jpg',
+                src: './assets/images/facade.jpg',
                 category: 'exterior',
                 title: 'Main Facade',
                 description: 'Traditional stone facade of L\'Oliver Romain'
             },
             {
                 id: 5,
-                src: 'assets/images/facade2.jpg',
+                src: './assets/images/facade2.jpg',
                 category: 'exterior',
                 title: 'Side Facade',
                 description: 'Charming exterior view with Mediterranean charm'
             },
             {
                 id: 6,
-                src: 'assets/images/facade3.jpg',
+                src: './assets/images/facade3.jpg',
                 category: 'exterior',
                 title: 'Garden View',
                 description: 'Beautiful garden and exterior architecture'
             },
             {
                 id: 7,
-                src: 'assets/images/terrace.jpg',
+                src: './assets/images/terrace.jpg',
                 category: 'exterior',
                 title: 'Outdoor Terrace',
                 description: 'Perfect spot for outdoor dining and relaxation'
             },
             {
                 id: 8,
-                src: 'assets/images/entrance.jpg',
+                src: './assets/images/entrance.jpg',
                 category: 'interior',
                 title: 'Main Entrance',
                 description: 'Welcoming entrance with traditional details'
             },
             {
                 id: 9,
-                src: 'assets/images/living-room.jpg',
+                src: './assets/images/living-room.jpg',
                 category: 'interior',
                 title: 'Living Room',
                 description: 'Comfortable living space with authentic Provençal decor'
             },
             {
                 id: 10,
-                src: 'assets/images/living-room2.jpg',
+                src: './assets/images/living-room2.jpg',
                 category: 'interior',
                 title: 'Lounge Area',
                 description: 'Cozy seating area with stone walls and modern comfort'
             },
             {
                 id: 11,
-                src: 'assets/images/bedroom.jpg',
+                src: './assets/images/bedroom.jpg',
                 category: 'rooms',
                 title: 'Master Bedroom',
                 description: 'Elegant master bedroom with traditional furnishings'
             },
             {
                 id: 12,
-                src: 'assets/images/bedroom2.jpg',
+                src: './assets/images/bedroom2.jpg',
                 category: 'rooms',
                 title: 'Guest Bedroom',
                 description: 'Comfortable guest room with authentic character'
             },
             {
                 id: 13,
-                src: 'assets/images/bedroom3.jpg',
+                src: './assets/images/bedroom3.jpg',
                 category: 'rooms',
                 title: 'Double Room',
                 description: 'Spacious bedroom with rustic charm'
             },
             {
                 id: 14,
-                src: 'assets/images/bedroom4.jpg',
+                src: './assets/images/bedroom4.jpg',
                 category: 'rooms',
                 title: 'Twin Room',
                 description: 'Bright and airy bedroom with garden views'
             },
             {
                 id: 15,
-                src: 'assets/images/bathroom.jpg',
+                src: './assets/images/bathroom.jpg',
                 category: 'rooms',
                 title: 'Bathroom',
                 description: 'Modern bathroom with traditional stone details'
             },
             {
                 id: 16,
-                src: 'assets/images/bathroom2.jpg',
+                src: './assets/images/bathroom2.jpg',
                 category: 'rooms',
                 title: 'En-suite Bathroom',
                 description: 'Elegant bathroom with contemporary amenities'
             },
             {
                 id: 17,
-                src: 'assets/images/french-breakfast.jpg',
+                src: './assets/images/french-breakfast.jpg',
                 category: 'dining',
                 title: 'French Breakfast',
                 description: 'Traditional French breakfast with local specialties'
             },
             {
                 id: 18,
-                src: 'assets/images/petit-dejeuner-2_2048x2048.jpg',
+                src: './assets/images/petit-dejeuner-2_2048x2048.jpg',
                 category: 'dining',
                 title: 'Gourmet Breakfast',
                 description: 'Artfully prepared breakfast with fresh local ingredients'
@@ -839,20 +852,10 @@
                     this.style.display = 'none';
                     const fallbackDiv = document.createElement('div');
                     fallbackDiv.className = 'image-fallback';
-                    fallbackDiv.style.cssText = `
-                        width: 100%;
-                        height: 100%;
-                        background: linear-gradient(135deg, #f5f5f5, #e0e0e0);
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                        color: #999;
-                        font-size: 1rem;
-                        flex-direction: column;
-                    `;
                     fallbackDiv.innerHTML = `
-                        <i class="fas fa-image" style="font-size: 2rem; margin-bottom: 10px;"></i>
+                        <i class="fas fa-image"></i>
                         <span>${item.title}</span>
+                        <small style="margin-top: 5px; opacity: 0.7;">Image: ${item.src}</small>
                     `;
                     this.parentNode.insertBefore(fallbackDiv, this);
                 };
