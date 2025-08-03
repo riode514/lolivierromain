@@ -21,7 +21,7 @@
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
             padding: 0 20px;
         }
@@ -131,50 +131,54 @@
             transform: rotate(-45deg) translate(6px, -6px);
         }
 
-        /* Breadcrumb */
-        .breadcrumb {
-            margin-top: 80px;
-            padding: 20px 0;
-            background-color: #f8f8f8;
-        }
-
-        .breadcrumb-nav {
-            font-size: 0.9rem;
-            color: #666;
-        }
-
-        .breadcrumb-nav a {
-            text-decoration: none;
-            color: #000;
-        }
-
-        .breadcrumb-nav span {
-            margin: 0 10px;
-        }
-
-        /* Page Header */
+        /* Page Header - Full Hero */
         .page-header {
-            height: 400px;
-            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80');
+            height: 100vh;
+            min-height: 600px;
+            margin-top: 80px;
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.2)), url('assets/images/facade.jpg');
             background-size: cover;
             background-position: center;
+            background-attachment: fixed;
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
             text-align: center;
-            filter: grayscale(100%);
+            position: relative;
+        }
+
+        .page-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, rgba(0,0,0,0.3), rgba(0,0,0,0.1));
+        }
+
+        .page-header-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            padding: 0 20px;
         }
 
         .page-header h1 {
             font-family: 'Marcellus', serif;
-            font-size: 3.5rem;
-            margin-bottom: 10px;
+            font-size: 4.5rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            letter-spacing: 2px;
         }
 
         .subtitle {
-            font-size: 1.2rem;
-            opacity: 0.9;
+            font-size: 1.5rem;
+            opacity: 0.95;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+            font-weight: 300;
+            letter-spacing: 1px;
         }
 
         /* Gallery Section */
@@ -219,26 +223,24 @@
         /* Gallery Grid */
         .gallery-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 25px;
             margin-bottom: 60px;
         }
 
         .gallery-item {
             position: relative;
-            height: 250px;
-            border-radius: 10px;
+            height: 300px;
+            border-radius: 12px;
             overflow: hidden;
             cursor: pointer;
             transition: all 0.3s ease;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-            filter: grayscale(100%);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
         }
 
         .gallery-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
-            filter: grayscale(50%);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 45px rgba(0,0,0,0.25);
         }
 
         .gallery-item img {
@@ -249,7 +251,7 @@
         }
 
         .gallery-item:hover img {
-            transform: scale(1.1);
+            transform: scale(1.05);
         }
 
         .gallery-overlay {
@@ -258,7 +260,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: linear-gradient(45deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.6));
+            background: linear-gradient(45deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.4));
             opacity: 0;
             transition: opacity 0.3s ease;
             display: flex;
@@ -276,12 +278,13 @@
         }
 
         .overlay-content i {
-            font-size: 2rem;
-            margin-bottom: 10px;
+            font-size: 2.5rem;
+            margin-bottom: 15px;
         }
 
         .overlay-content p {
-            font-size: 1.1rem;
+            font-size: 1.2rem;
+            font-weight: 500;
         }
 
         /* Lightbox */
@@ -304,24 +307,24 @@
 
         .lightbox-content {
             position: relative;
-            max-width: 90%;
-            max-height: 90%;
+            max-width: 95%;
+            max-height: 95%;
         }
 
         .lightbox img {
             width: 100%;
             height: 100%;
             object-fit: contain;
-            border-radius: 10px;
-            filter: grayscale(100%);
+            border-radius: 12px;
+            max-height: 90vh;
         }
 
         .lightbox-close {
             position: absolute;
-            top: -40px;
+            top: -50px;
             right: 0;
             color: white;
-            font-size: 2rem;
+            font-size: 2.5rem;
             cursor: pointer;
             transition: color 0.3s ease;
         }
@@ -335,28 +338,36 @@
             top: 50%;
             transform: translateY(-50%);
             color: white;
-            font-size: 2rem;
+            font-size: 3rem;
             cursor: pointer;
             transition: color 0.3s ease;
             user-select: none;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .lightbox-nav:hover {
             color: #999;
+            background: rgba(0, 0, 0, 0.7);
         }
 
         .lightbox-prev {
-            left: -60px;
+            left: -80px;
         }
 
         .lightbox-next {
-            right: -60px;
+            right: -80px;
         }
 
         /* Experience Moments */
         .experience-moments {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
             gap: 40px;
             margin-bottom: 60px;
         }
@@ -365,7 +376,7 @@
             background: white;
             border-radius: 15px;
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            box-shadow: 0 12px 35px rgba(0,0,0,0.12);
             transition: transform 0.3s ease;
         }
 
@@ -374,10 +385,9 @@
         }
 
         .moment-image {
-            height: 250px;
+            height: 280px;
             background-size: cover;
             background-position: center;
-            filter: grayscale(100%);
         }
 
         .moment-content {
@@ -441,18 +451,39 @@
         }
 
         /* Responsive Design */
+        @media (max-width: 1024px) {
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+                gap: 20px;
+            }
+            
+            .gallery-item {
+                height: 280px;
+            }
+        }
+
         @media (max-width: 768px) {
+            .page-header {
+                height: 80vh;
+                min-height: 500px;
+                background-attachment: scroll;
+            }
+            
             .page-header h1 {
-                font-size: 2.5rem;
+                font-size: 3rem;
+            }
+            
+            .subtitle {
+                font-size: 1.2rem;
             }
 
             .gallery-grid {
-                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-                gap: 15px;
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+                gap: 18px;
             }
 
             .gallery-item {
-                height: 200px;
+                height: 250px;
             }
 
             .experience-moments {
@@ -461,15 +492,40 @@
             }
 
             .lightbox-nav {
-                font-size: 1.5rem;
+                font-size: 2rem;
+                width: 50px;
+                height: 50px;
             }
 
             .lightbox-prev {
-                left: -40px;
+                left: -60px;
             }
 
             .lightbox-next {
-                right: -40px;
+                right: -60px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .page-header {
+                height: 70vh;
+                min-height: 450px;
+            }
+            
+            .page-header h1 {
+                font-size: 2.5rem;
+            }
+            
+            .subtitle {
+                font-size: 1rem;
+            }
+            
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .gallery-item {
+                height: 220px;
             }
         }
     </style>
@@ -496,16 +552,7 @@
         </nav>
     </header>
 
-    <!-- Breadcrumb -->
-    <div class="breadcrumb">
-        <div class="container">
-            <nav class="breadcrumb-nav">
-                <a href="/">Home</a>
-                <span>/</span>
-                <span>Gallery</span>
-            </nav>
-        </div>
-    </div>
+
 
     <!-- Page Header -->
     <section class="page-header">
@@ -527,7 +574,6 @@
                 <button class="filter-btn" data-filter="interior">Interior</button>
                 <button class="filter-btn" data-filter="rooms">Rooms</button>
                 <button class="filter-btn" data-filter="dining">Dining</button>
-                <button class="filter-btn" data-filter="local">Local Area</button>
             </div>
 
             <!-- Gallery Grid -->
@@ -543,7 +589,7 @@
             <h2 class="section-title">Explore Our Spaces</h2>
             <div class="experience-moments">
                 <div class="moment">
-                    <div class="moment-image" style="background-image: url('https://images.unsplash.com/photo-1544966503-7cc5ac882d5e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
+                    <div class="moment-image" style="background-image: url('assets/images/facade-pool.jpg');"></div>
                     <div class="moment-content">
                         <h4>Exterior Spaces</h4>
                         <p>Discover our beautiful courtyards, Mediterranean gardens, and peaceful pool area surrounded by ancient olive trees and fragrant lavender.</p>
@@ -551,7 +597,7 @@
                 </div>
                 
                 <div class="moment">
-                    <div class="moment-image" style="background-image: url('https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
+                    <div class="moment-image" style="background-image: url('assets/images/living-room.jpg');"></div>
                     <div class="moment-content">
                         <h4>Interior Spaces</h4>
                         <p>Step inside our elegantly appointed rooms, featuring original architectural details, exposed stone walls, and carefully curated furnishings.</p>
@@ -559,10 +605,10 @@
                 </div>
                 
                 <div class="moment">
-                    <div class="moment-image" style="background-image: url('https://images.unsplash.com/photo-1503614472-8c93d56cd601?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
+                    <div class="moment-image" style="background-image: url('assets/images/french-breakfast.jpg');"></div>
                     <div class="moment-content">
-                        <h4>Local Area</h4>
-                        <p>Explore the charming village of Saint-Siffret and the surrounding Languedoc countryside, with its vineyards, markets, and historic towns.</p>
+                        <h4>Dining Experience</h4>
+                        <p>Enjoy authentic French breakfast and dining experiences on our beautiful terrace overlooking the Provençal countryside.</p>
                     </div>
                 </div>
             </div>
@@ -600,119 +646,133 @@
     </footer>
 
     <script>
-        // Gallery data with high-quality images
+        // Gallery data with local images
         const galleryData = [
             {
                 id: 1,
-                src: 'https://images.unsplash.com/photo-1582719508461-905c673771fd?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80',
+                src: 'assets/images/facade-pool.jpg',
                 category: 'exterior',
-                title: 'Mediterranean Pool Area',
-                description: 'Relax by our beautiful pool surrounded by olive trees'
+                title: 'Pool & Facade',
+                description: 'Beautiful pool area with traditional Provençal architecture'
             },
             {
                 id: 2,
-                src: 'https://images.unsplash.com/photo-1571896349842-33c89424de2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80',
-                category: 'interior',
-                title: 'Elegant Living Room',
-                description: 'Comfortable seating area with traditional Provençal decor'
+                src: 'assets/images/pool.jpg',
+                category: 'exterior',
+                title: 'Swimming Pool',
+                description: 'Relax by our beautiful Mediterranean pool'
             },
             {
                 id: 3,
-                src: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80',
-                category: 'rooms',
-                title: 'Master Bedroom',
-                description: 'Luxurious bedroom with stone walls and modern amenities'
+                src: 'assets/images/pool2.jpg',
+                category: 'exterior',
+                title: 'Pool Terrace',
+                description: 'Pool area with stunning countryside views'
             },
             {
                 id: 4,
-                src: 'https://images.unsplash.com/photo-1544966503-7cc5ac882d5e?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80',
+                src: 'assets/images/facade.jpg',
                 category: 'exterior',
-                title: 'Garden Courtyard',
-                description: 'Peaceful courtyard with lavender and Mediterranean plants'
+                title: 'Main Facade',
+                description: 'Traditional stone facade of L\'Oliver Romain'
             },
             {
                 id: 5,
-                src: 'https://images.unsplash.com/photo-1556909114-4dc39de8e19b?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80',
-                category: 'dining',
-                title: 'Breakfast Terrace',
-                description: 'Start your day with breakfast on our sunny terrace'
+                src: 'assets/images/facade2.jpg',
+                category: 'exterior',
+                title: 'Side Facade',
+                description: 'Charming exterior view with Mediterranean charm'
             },
             {
                 id: 6,
-                src: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80',
-                category: 'interior',
-                title: 'Stone Kitchen',
-                description: 'Authentic stone kitchen with modern appliances'
+                src: 'assets/images/facade3.jpg',
+                category: 'exterior',
+                title: 'Garden View',
+                description: 'Beautiful garden and exterior architecture'
             },
             {
                 id: 7,
-                src: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80',
-                category: 'rooms',
-                title: 'Guest Bedroom',
-                description: 'Comfortable guest room with traditional furnishings'
+                src: 'assets/images/terrace.jpg',
+                category: 'exterior',
+                title: 'Outdoor Terrace',
+                description: 'Perfect spot for outdoor dining and relaxation'
             },
             {
                 id: 8,
-                src: 'https://images.unsplash.com/photo-1503614472-8c93d56cd601?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80',
-                category: 'local',
-                title: 'Village Streets',
-                description: 'Charming cobblestone streets of Saint-Siffret'
+                src: 'assets/images/entrance.jpg',
+                category: 'interior',
+                title: 'Main Entrance',
+                description: 'Welcoming entrance with traditional details'
             },
             {
                 id: 9,
-                src: 'https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80',
-                category: 'exterior',
-                title: 'Olive Grove',
-                description: 'Ancient olive trees surrounding the property'
+                src: 'assets/images/living-room.jpg',
+                category: 'interior',
+                title: 'Living Room',
+                description: 'Comfortable living space with authentic Provençal decor'
             },
             {
                 id: 10,
-                src: 'https://images.unsplash.com/photo-1561501900-3701fa6a0864?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80',
-                category: 'dining',
-                title: 'Wine Cellar',
-                description: 'Curated selection of local Languedoc wines'
+                src: 'assets/images/living-room2.jpg',
+                category: 'interior',
+                title: 'Lounge Area',
+                description: 'Cozy seating area with stone walls and modern comfort'
             },
             {
                 id: 11,
-                src: 'https://images.unsplash.com/photo-1582719508461-905c673771fd?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80',
-                category: 'exterior',
-                title: 'Evening Pool',
-                description: 'Romantic evening ambiance by the pool'
+                src: 'assets/images/bedroom.jpg',
+                category: 'rooms',
+                title: 'Master Bedroom',
+                description: 'Elegant master bedroom with traditional furnishings'
             },
             {
                 id: 12,
-                src: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80',
-                category: 'interior',
-                title: 'Reading Nook',
-                description: 'Quiet corner perfect for reading and relaxation'
+                src: 'assets/images/bedroom2.jpg',
+                category: 'rooms',
+                title: 'Guest Bedroom',
+                description: 'Comfortable guest room with authentic character'
             },
             {
                 id: 13,
-                src: 'https://images.unsplash.com/photo-1571896349842-33c89424de2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80',
+                src: 'assets/images/bedroom3.jpg',
                 category: 'rooms',
-                title: 'Bathroom Luxury',
-                description: 'Elegant bathroom with stone details'
+                title: 'Double Room',
+                description: 'Spacious bedroom with rustic charm'
             },
             {
                 id: 14,
-                src: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80',
-                category: 'local',
-                title: 'Vineyard Views',
-                description: 'Rolling hills and vineyards of Languedoc'
+                src: 'assets/images/bedroom4.jpg',
+                category: 'rooms',
+                title: 'Twin Room',
+                description: 'Bright and airy bedroom with garden views'
             },
             {
                 id: 15,
-                src: 'https://images.unsplash.com/photo-1544966503-7cc5ac882d5e?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80',
-                category: 'exterior',
-                title: 'Garden Paths',
-                description: 'Winding paths through Mediterranean gardens'
+                src: 'assets/images/bathroom.jpg',
+                category: 'rooms',
+                title: 'Bathroom',
+                description: 'Modern bathroom with traditional stone details'
             },
             {
                 id: 16,
-                src: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80',
+                src: 'assets/images/bathroom2.jpg',
+                category: 'rooms',
+                title: 'En-suite Bathroom',
+                description: 'Elegant bathroom with contemporary amenities'
+            },
+            {
+                id: 17,
+                src: 'assets/images/french-breakfast.jpg',
                 category: 'dining',
-                title: 'Outdoor Dining',
-                description: 'Al fresco dining under the stars'
+                title: 'French Breakfast',
+                description: 'Traditional French breakfast with local specialties'
+            },
+            {
+                id: 18,
+                src: 'assets/images/petit-dejeuner-2_2048x2048.jpg',
+                category: 'dining',
+                title: 'Gourmet Breakfast',
+                description: 'Artfully prepared breakfast with fresh local ingredients'
             }
         ];
 

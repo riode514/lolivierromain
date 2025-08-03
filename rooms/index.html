@@ -134,10 +134,12 @@
 
         /* Breadcrumb */
         .breadcrumb {
-            margin-top: 80px;
+            position: relative;
+            z-index: 100;
             padding: 1rem 0;
-            background: #f8f8f8;
-            border-bottom: 1px solid #eee;
+            background: rgba(248, 248, 248, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(238, 238, 238, 0.8);
         }
 
         .breadcrumb-nav {
@@ -154,19 +156,22 @@
             margin: 0 0.5rem;
         }
 
-        /* Page Header */
+        /* Page Header - FIXED for full coverage */
         .page-header {
             position: relative;
-            height: 60vh;
-            min-height: 400px;
+            height: 100vh;
+            min-height: 600px;
             background-size: cover !important;
             background-position: center center !important;
             background-repeat: no-repeat !important;
-            background-attachment: fixed;
+            background-attachment: scroll; /* Changed from fixed for better mobile support */
             display: flex;
             align-items: center;
             justify-content: center;
             overflow: hidden;
+            /* Ensure it starts from the very top */
+            margin-top: 0;
+            top: 0;
         }
 
         .page-header::before {
@@ -176,7 +181,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: rgba(0, 0, 0, 0.4);
+            background: rgba(0, 0, 0, 0.3); /* Reduced opacity for better image visibility */
             z-index: 1;
         }
 
@@ -187,25 +192,30 @@
             color: white;
             max-width: 800px;
             padding: 0 20px;
+            margin-top: 80px; /* Account for fixed header */
         }
 
         .page-header h1 {
-            font-size: 3.5rem;
+            font-size: 4rem;
             font-family: 'Marcellus', serif;
             margin-bottom: 1rem;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+            font-weight: 400;
         }
 
         .page-header .subtitle {
-            font-size: 1.4rem;
+            font-size: 1.6rem;
             font-style: italic;
-            opacity: 0.9;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+            opacity: 0.95;
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
         }
 
         /* Content Sections */
         .content-section {
             padding: 4rem 0;
+            position: relative;
+            z-index: 10;
+            background: #fefefe;
         }
 
         .content-section:nth-child(even) {
@@ -399,6 +409,23 @@
 
         /* Responsive Design */
         @media (max-width: 768px) {
+            .page-header {
+                height: 80vh;
+                min-height: 500px;
+            }
+
+            .page-header h1 {
+                font-size: 3rem;
+            }
+
+            .page-header .subtitle {
+                font-size: 1.3rem;
+            }
+
+            .page-header-content {
+                margin-top: 60px; /* Adjust for smaller header on mobile */
+            }
+
             .rooms-grid {
                 grid-template-columns: 1fr;
                 gap: 2rem;
@@ -418,20 +445,29 @@
                 padding: 1.5rem;
             }
 
-            .page-header h1 {
-                font-size: 2.5rem;
-            }
-
-            .page-header .subtitle {
-                font-size: 1.2rem;
-            }
-
             .section-title {
                 font-size: 2rem;
             }
         }
 
         @media (max-width: 480px) {
+            .page-header {
+                height: 70vh;
+                min-height: 400px;
+            }
+
+            .page-header h1 {
+                font-size: 2.5rem;
+            }
+
+            .page-header .subtitle {
+                font-size: 1.1rem;
+            }
+
+            .page-header-content {
+                margin-top: 50px;
+            }
+
             .rooms-grid {
                 gap: 1.5rem;
                 margin: 1.5rem 0;
@@ -447,19 +483,6 @@
 
             .room-content h3 {
                 font-size: 1.5rem;
-            }
-
-            .page-header {
-                height: 50vh;
-                min-height: 300px;
-            }
-
-            .page-header h1 {
-                font-size: 2rem;
-            }
-
-            .page-header .subtitle {
-                font-size: 1rem;
             }
         }
     </style>
@@ -486,6 +509,14 @@
         </nav>
     </header>
 
+    <!-- Page Header - Now covers full screen including header area -->
+    <section class="page-header" style="background-image: url('https://images.unsplash.com/photo-1631049307264-da0ec9d70304?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');">
+        <div class="page-header-content">
+            <h1>Our Rooms</h1>
+            <p class="subtitle">Four unique sanctuaries of comfort</p>
+        </div>
+    </section>
+
     <!-- Breadcrumb -->
     <div class="breadcrumb">
         <div class="container">
@@ -497,20 +528,12 @@
         </div>
     </div>
 
-    <!-- Page Header -->
-    <section class="page-header" style="background-image: url('../assets/images/bedroom.jpg');">
-        <div class="page-header-content">
-            <h1>Our Rooms</h1>
-            <p class="subtitle">Four unique sanctuaries of comfort</p>
-        </div>
-    </section>
-
     <!-- Rooms Grid -->
     <section class="content-section">
         <div class="container">
             <div class="rooms-grid">
                 <div class="room-card">
-                    <div class="room-image" style="background-image: url('../assets/images/bedroom.jpg');"></div>
+                    <div class="room-image" style="background-image: url('https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80');"></div>
                     <div class="room-content">
                         <h3>La Lavande</h3>
                         <p class="room-description">A serene sanctuary where purple hues and the gentle scent of lavender create an atmosphere of pure tranquility. The room opens to views of the garden's herb borders, with original stone walls and a private en-suite bathroom featuring vintage fixtures.</p>
@@ -521,7 +544,7 @@
                 </div>
                 
                 <div class="room-card">
-                    <div class="room-image" style="background-image: url('../assets/images/bedroom2.jpg');"></div>
+                    <div class="room-image" style="background-image: url('https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80');"></div>
                     <div class="room-content">
                         <h3>Le Figuier</h3>
                         <p class="room-description">Beneath the shade of ancient fig trees, this room captures the essence of Provence with warm terracotta tones and rustic wooden beams that tell stories of generations past. French doors open to a private terrace overlooking the courtyard.</p>
@@ -532,7 +555,7 @@
                 </div>
                 
                 <div class="room-card">
-                    <div class="room-image" style="background-image: url('../assets/images/bedroom3.jpg');"></div>
+                    <div class="room-image" style="background-image: url('https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80');"></div>
                     <div class="room-content">
                         <h3>L'Amande</h3>
                         <p class="room-description">Soft almond whites and natural textures create a cocoon of comfort. French doors open to a private terrace where morning coffee becomes a sacred ritual. The room features original terracotta floors and a beautifully appointed bathroom.</p>
@@ -543,7 +566,7 @@
                 </div>
                 
                 <div class="room-card">
-                    <div class="room-image" style="background-image: url('../assets/images/bedroom4.jpg');"></div>
+                    <div class="room-image" style="background-image: url('https://images.unsplash.com/photo-1571896349842-33c89424de2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80');"></div>
                     <div class="room-content">
                         <h3>La Pierre</h3>
                         <p class="room-description">Honoring the ancient stonework of Provence, this room blends original architecture with contemporary luxury, creating a timeless retreat for the soul. Features include vaulted stone ceilings and a spa-like bathroom with natural stone details.</p>
