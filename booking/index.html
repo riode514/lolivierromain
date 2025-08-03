@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking | L'Oliver Romain</title>
+    <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Cardo:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header id="header">
+        <nav>
+            <a href="/" class="logo">L'Oliver Romain</a>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/gallery">Gallery</a></li>
+                <li><a href="/rooms">Rooms</a></li>
+                <li><a href="/experiences">Experiences</a></li>
+                <li><a href="/thehost">The Host</a></li>
+                <li><a href="/booking" class="active">Booking</a></li>
+            </ul>
+            <div class="mobile-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+        <div class="container">
+            <nav class="breadcrumb-nav">
+                <a href="/">Home</a>
+                <span>/</span>
+                <span>Booking</span>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Page Header -->
+    <section class="page-header" style="background-image: url('assets/images/booking-header.jpg');">
+        <div class="page-header-content">
+            <h1>Book Your Stay</h1>
+            <p class="subtitle">Your Provençal retreat awaits</p>
+        </div>
+    </section>
+
+    <!-- Booking Form Section -->
+    <section class="content-section" style="background: var(--cream);">
+        <div class="container">
+            <form class="booking-form">
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone">
+                </div>
+                
+                <div class="form-group">
+                    <div class="form-row">
+                        <div>
+                            <label for="checkin">Check-in Date</label>
+                            <input type="date" id="checkin" name="checkin" required>
+                        </div>
+                        <div>
+                            <label for="checkout">Check-out Date</label>
+                            <input type="date" id="checkout" name="checkout" required>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <div class="form-row">
+                        <div>
+                            <label for="guests">Number of Guests</label>
+                            <select id="guests" name="guests" required>
+                                <option value="">Select number of guests</option>
+                                <option value="1">1 Guest</option>
+                                <option value="2">2 Guests</option>
+                                <option value="3">3 Guests</option>
+                                <option value="4">4 Guests</option>
+                                <option value="5">5 Guests</option>
+                                <option value="6">6 Guests</option>
+                                <option value="7">7 Guests</option>
+                                <option value="8">8 Guests</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="room-preference">Room Preference</label>
+                            <select id="room-preference" name="room-preference">
+                                <option value="">No preference</option>
+                                <option value="lavande">La Lavande</option>
+                                <option value="figuier">Le Figuier</option>
+                                <option value="amande">L'Amande</option>
+                                <option value="pierre">La Pierre</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="occasion">Special Occasion</label>
+                    <select id="occasion" name="occasion">
+                        <option value="">Select if applicable</option>
+                        <option value="anniversary">Anniversary</option>
+                        <option value="honeymoon">Honeymoon</option>
+                        <option value="birthday">Birthday</option>
+                        <option value="romantic-getaway">Romantic Getaway</option>
+                        <option value="family-holiday">Family Holiday</option>
+                        <option value="business-travel">Business Travel</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="message">Special Requests or Message</label>
+                    <textarea id="message" name="message" placeholder="Tell us about your stay preferences, dietary requirements, or any special requests..."></textarea>
+                </div>
+                
+                <button type="submit" class="submit-btn">Send Booking Inquiry</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Booking Information -->
+    <section class="content-section">
+        <div class="container">
+            <h2 class="section-title">Booking Information</h2>
+            <div class="overview-features">
+                <div class="feature">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                            <line x1="16" y1="2" x2="16" y2="6"/>
+                            <line x1="8" y1="2" x2="8" y2="6"/>
+                            <line x1="3" y1="10" x2="21" y2="10"/>
+                        </svg>
+                    </div>
+                    <h3>Check-in & Check-out</h3>
+                    <p>Check-in: 3:00 PM onwards<br>Check-out: 11:00 AM<br>Early check-in and late check-out available upon request.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <circle cx="12" cy="12" r="10"/>
+                            <path d="M12 6v6l4 2"/>
+                        </svg>
+                    </div>
+                    <h3>Minimum Stay</h3>
+                    <p>2 nights minimum year-round<br>3 nights minimum during peak season (July-August)<br>7 nights minimum during special events.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+                            <line x1="8" y1="21" x2="16" y2="21"/>
+                            <line x1="12" y1="17" x2="12" y2="21"/>
+                        </svg>
+                    </div>
+                    <h3>Cancellation Policy</h3>
+                    <p>Free cancellation up to 14 days before arrival<br>50% refund for cancellations 7-14 days before<br>No refund for cancellations within 7 days.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <circle cx="12" cy="12" r="3"/>
+                            <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1 1.51V3a2 2 0 0 1 2 2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82v.79z"/>
+                        </svg>
+                    </div>
+                    <h3>What's Included</h3>
+                    <p>Continental breakfast<br>Pool and garden access<br>WiFi throughout<br>Welcome amenities<br>Local recommendations from Neil.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M3 6h18l-2 13H5L3 6z"/>
+                            <path d="M3 6L2 4H1"/>
+                            <circle cx="9" cy="20" r="1"/>
+                            <circle cx="20" cy="20" r="1"/>
+                        </svg>
+                    </div>
+                    <h3>Additional Services</h3>
+                    <p>Airport transfers available<br>Grocery shopping service<br>Restaurant reservations<br>Wine tasting arrangements<br>Private chef upon request.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M9 12l2 2 4-4"/>
+                            <circle cx="12" cy="12" r="9"/>
+                        </svg>
+                    </div>
+                    <h3>Confirmation Process</h3>
+                    <p>Inquiry response within 24 hours<br>Booking confirmation via email<br>Pre-arrival information sent 1 week before<br>Direct contact with Neil for any questions.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Information -->
+    <section class="content-section">
+        <div class="container">
+            <h2 class="section-title">Contact Information</h2>
+            <div class="about-text">
+                <p>For immediate assistance or special requests, please don't hesitate to contact us directly:</p>
+                <p><strong>Email:</strong> hello@loliverromain.com<br>
+                <strong>Phone:</strong> +33 4 66 22 XX XX<br>
+                <strong>Address:</strong> L'Oliver Romain, Saint-Siffret, 30700, France</p>
+                
+                <p>We look forward to welcoming you to our Provençal paradise and creating memories that will last a lifetime.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 L'Oliver Romain. All rights reserved.</p>
+            <p class="footer-contact">For inquiries: hello@loliverromain.com | +33 4 66 22 XX XX</p>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

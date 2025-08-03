@@ -3,282 +3,187 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Experience - L'Oliver Romain</title>
+    <title>Experiences | L'Oliver Romain</title>
     <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Cardo:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --cream: #F5F5F2;
-            --taupe: #342E2E;
-            --olive: #7B8B5A;
-            --lavender: #A08BA5;
-            --soft-white: #FEFEFE;
-            --light-taupe: #6B5F5F;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Cardo', serif;
-            line-height: 1.7;
-            color: var(--taupe);
-            background: var(--cream);
-            font-size: 1.1rem;
-            padding: 2rem;
-        }
-
-        h1, h2, h4 {
-            font-family: 'Marcellus', serif;
-            font-weight: normal;
-            letter-spacing: 0.5px;
-        }
-
-        .section-title {
-            font-size: 3rem;
-            text-align: center;
-            margin-bottom: 1rem;
-            color: var(--taupe);
-        }
-
-        .section-subtitle {
-            text-align: center;
-            font-style: italic;
-            font-size: 1.3rem;
-            color: var(--light-taupe);
-            margin-bottom: 4rem;
-        }
-
-        .experience-content {
-            max-width: 900px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .experience-text {
-            font-size: 1.3rem;
-            line-height: 1.8;
-            font-style: italic;
-            margin-bottom: 4rem;
-            color: var(--light-taupe);
-        }
-
-        .experience-text p {
-            margin-bottom: 2rem;
-        }
-
-        .experience-moments {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 4rem;
-        }
-
-        .moment {
-            background: var(--soft-white);
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            position: relative;
-        }
-
-        .moment:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 16px 48px rgba(0,0,0,0.15);
-        }
-
-        .moment-image {
-            width: 100%;
-            height: 200px;
-            background-size: cover;
-            background-position: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .moment-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.3s ease;
-        }
-
-        .moment:hover .moment-image img {
-            transform: scale(1.05);
-        }
-
-        .moment-content {
-            padding: 2rem;
-            text-align: left;
-        }
-
-        .moment h4 {
-            font-size: 1.5rem;
-            color: var(--taupe);
-            margin-bottom: 1rem;
-            text-align: center;
-        }
-
-        .moment p {
-            color: var(--light-taupe);
-            line-height: 1.7;
-            font-size: 1rem;
-        }
-
-        .moment-time {
-            position: absolute;
-            top: 1rem;
-            right: 1rem;
-            background: rgba(123, 139, 90, 0.9);
-            color: white;
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-family: 'Marcellus', serif;
-        }
-
-        /* Individual moment styling */
-        .morning {
-            border-left: 4px solid #FFD700;
-        }
-
-        .afternoon {
-            border-left: 4px solid #87CEEB;
-        }
-
-        .evening {
-            border-left: 4px solid #DDA0DD;
-        }
-
-        @media (max-width: 768px) {
-            .experience-moments {
-                grid-template-columns: 1fr;
-            }
-            
-            .section-title {
-                font-size: 2.5rem;
-            }
-            
-            body {
-                padding: 1rem;
-            }
-            
-            .experience-text {
-                font-size: 1.1rem;
-            }
-        }
-
-        /* Animation for moments appearing */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .moment {
-            animation: fadeInUp 0.6s ease forwards;
-        }
-
-        .moment:nth-child(1) {
-            animation-delay: 0.1s;
-        }
-
-        .moment:nth-child(2) {
-            animation-delay: 0.2s;
-        }
-
-        .moment:nth-child(3) {
-            animation-delay: 0.3s;
-        }
-    </style>
+    <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body>
-    <h2 class="section-title">The Experience</h2>
-    <p class="section-subtitle">Embrace the rhythm of Provence</p>
-    
-    <div class="experience-content">
-        <div class="experience-text">
-            <p>At L'Oliver Romain, every moment is an invitation to slow down and savor life's simple pleasures. Feel the warmth of ancient stone beneath your feet, breathe in the perfume of wild rosemary and thyme, and let the golden light of late afternoon wash over your skin.</p>
-            
-            <p>Here, time moves differently. Mornings begin with the soft rustle of olive leaves, afternoons stretch lazily by the pool, and evenings are painted in shades of rosé and conversation that flows as naturally as the nearby rivers.</p>
-        </div>
+    <!-- Header -->
+    <header id="header">
+        <nav>
+            <a href="/" class="logo">L'Oliver Romain</a>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/gallery">Gallery</a></li>
+                <li><a href="/rooms">Rooms</a></li>
+                <li><a href="/experiences" class="active">Experiences</a></li>
+                <li><a href="/thehost">The Host</a></li>
+                <li><a href="/booking">Booking</a></li>
+            </ul>
+            <div class="mobile-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
 
-        <div class="experience-moments">
-            <!-- Morning Rituals - Using French breakfast image -->
-            <div class="moment morning">
-                <div class="moment-time">7:00 - 10:00</div>
-                <div class="moment-image">
-                    <img src="assets/images/french-breakfast.jpg" alt="Morning breakfast">
-                </div>
-                <div class="moment-content">
-                    <h4>Morning Rituals</h4>
-                    <p>Greet the day with fresh croissants and locally sourced orange juice on the terrace, as the morning sun filters through ancient olive groves. The gentle clinking of coffee cups mingles with birdsong, creating a symphony of simple pleasures.</p>
-                </div>
-            </div>
-            
-            <!-- Poolside Afternoons - Using pool image -->
-            <div class="moment afternoon">
-                <div class="moment-time">12:00 - 17:00</div>
-                <div class="moment-image">
-                    <img src="assets/images/pool2.jpg" alt="Pool afternoon">
-                </div>
-                <div class="moment-content">
-                    <h4>Poolside Afternoons</h4>
-                    <p>Surrender to the gentle rhythm of the cicadas while floating in the crystal-clear pool, surrounded by fragrant Mediterranean gardens. Time seems to stand still as you drift between wakefulness and dreams.</p>
-                </div>
-            </div>
-            
-            <!-- Golden Hour - Using petit-dejeuner image -->
-            <div class="moment evening">
-                <div class="moment-time">17:00 - 20:00</div>
-                <div class="moment-image">
-                    <img src="assets/images/petit-dejeuner-2_2048x2048.jpg" alt="Evening terrace">
-                </div>
-                <div class="moment-content">
-                    <h4>Golden Hour</h4>
-                    <p>As evening approaches, sip local rosé while watching the sunset paint the countryside in hues that have inspired artists for centuries. The village below begins to twinkle as lights appear in ancient windows.</p>
-                </div>
-            </div>
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+        <div class="container">
+            <nav class="breadcrumb-nav">
+                <a href="/">Home</a>
+                <span>/</span>
+                <span>Experiences</span>
+            </nav>
         </div>
     </div>
 
-    <script>
-        // Add scroll-triggered animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
+    <!-- Page Header -->
+    <section class="page-header" style="background-image: url('assets/images/experiences-header.jpg');">
+        <div class="page-header-content">
+            <h1>The Experience</h1>
+            <p class="subtitle">Embrace the rhythm of Provence</p>
+        </div>
+    </section>
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
+    <!-- Main Experience Content -->
+    <section class="content-section">
+        <div class="container">
+            <div class="about-text">
+                <p>At L'Oliver Romain, every moment is an invitation to slow down and savor life's simple pleasures. Feel the warmth of ancient stone beneath your feet, breathe in the perfume of wild rosemary and thyme, and let the golden light of late afternoon wash over your skin.</p>
+                
+                <p>Here, time moves differently. Mornings begin with the soft rustle of olive leaves, afternoons stretch lazily by the pool, and evenings are painted in shades of rosé and conversation that flows as naturally as the nearby rivers.</p>
+            </div>
+        </div>
+    </section>
 
-        document.querySelectorAll('.moment').forEach(moment => {
-            observer.observe(moment);
-        });
+    <!-- Daily Moments -->
+    <section class="content-section">
+        <div class="container">
+            <h2 class="section-title">Daily Moments</h2>
+            <div class="experience-moments">
+                <div class="moment">
+                    <div class="moment-image" style="background-image: url('assets/images/morning-rituals.jpg');"></div>
+                    <div class="moment-content">
+                        <h4>Morning Rituals</h4>
+                        <p>Greet the day with fresh croissants and locally sourced orange juice on the terrace, as the morning sun filters through ancient olive groves. The gentle sounds of awakening nature create the perfect soundtrack for reflection and planning your day.</p>
+                    </div>
+                </div>
+                
+                <div class="moment">
+                    <div class="moment-image" style="background-image: url('assets/images/poolside-afternoons.jpg');"></div>
+                    <div class="moment-content">
+                        <h4>Poolside Afternoons</h4>
+                        <p>Surrender to the gentle rhythm of the cicadas while floating in the crystal-clear pool, surrounded by fragrant Mediterranean gardens. Let the warm Provençal sun melt away all traces of modern stress.</p>
+                    </div>
+                </div>
+                
+                <div class="moment">
+                    <div class="moment-image" style="background-image: url('assets/images/golden-hour.jpg');"></div>
+                    <div class="moment-content">
+                        <h4>Golden Hour</h4>
+                        <p>As evening approaches, sip local rosé while watching the sunset paint the countryside in hues that have inspired artists for centuries. These are the moments that define the true essence of Provence.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-        // Add click interaction to moments
-        document.querySelectorAll('.moment').forEach(moment => {
-            moment.addEventListener('click', function() {
-                this.style.transform = 'scale(0.98)';
-                setTimeout(() => {
-                    this.style.transform = 'scale(1)';
-                }, 150);
-            });
-        });
-    </script>
+    <!-- Activities & Attractions -->
+    <section class="content-section">
+        <div class="container">
+            <h2 class="section-title">Local Discoveries</h2>
+            <div class="overview-features">
+                <div class="feature">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                            <circle cx="12" cy="10" r="3"/>
+                        </svg>
+                    </div>
+                    <h3>Uzès Medieval Town</h3>
+                    <p>Just 10 minutes away, explore the perfectly preserved medieval streets, weekly markets, and the famous Fenestrelle Tower of this historic ducal town.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <circle cx="12" cy="12" r="8"/>
+                            <path d="M12 2v20M2 12h20"/>
+                        </svg>
+                    </div>
+                    <h3>Pont du Gard</h3>
+                    <p>Visit this UNESCO World Heritage Roman aqueduct, one of the most impressive engineering feats of the ancient world, just 15 minutes from our door.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                        </svg>
+                    </div>
+                    <h3>Wine Tasting</h3>
+                    <p>Discover the renowned wines of the Rhône Valley with visits to local vineyards and tasting sessions with passionate vintners who share their craft.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                            <line x1="16" y1="2" x2="16" y2="6"/>
+                            <line x1="8" y1="2" x2="8" y2="6"/>
+                            <line x1="3" y1="10" x2="21" y2="10"/>
+                        </svg>
+                    </div>
+                    <h3>Local Markets</h3>
+                    <p>Experience the vibrant colors and flavors of Provençal markets in nearby towns, where fresh produce, artisanal goods, and local specialties await.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M14 9V5a3 3 0 0 0-6 0v4"/>
+                            <rect x="2" y="9" width="20" height="11" rx="2" ry="2"/>
+                        </svg>
+                    </div>
+                    <h3>Cultural Sites</h3>
+                    <p>Explore Roman amphitheaters in Nîmes, charming hilltop villages, and ancient chapels that dot the beautiful Languedoc landscape.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+                        </svg>
+                    </div>
+                    <h3>Hiking Trails</h3>
+                    <p>Discover scenic walking paths through vineyards, olive groves, and garrigue landscapes that offer stunning views of the surrounding countryside.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seasonal Experiences -->
+    <section class="content-section">
+        <div class="container">
+            <h2 class="section-title">Through the Seasons</h2>
+            <div class="about-text">
+                <p><strong>Spring:</strong> Witness the countryside burst into bloom with wild poppies and lavender. Perfect weather for exploring local markets and hiking through blooming vineyards.</p>
+                
+                <p><strong>Summer:</strong> Long, golden days perfect for poolside relaxation and evening strolls through ancient villages. Local festivals and outdoor concerts fill the warm nights.</p>
+                
+                <p><strong>Autumn:</strong> Harvest season brings wine tastings and the golden colors of changing vines. Mild temperatures make this ideal for cultural explorations and countryside walks.</p>
+                
+                <p><strong>Winter:</strong> Peaceful months with crisp air and clear skies. Cozy evenings by the fireplace and visits to Christmas markets in nearby towns create intimate memories.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 L'Oliver Romain. All rights reserved.</p>
+            <p class="footer-contact">For inquiries: hello@loliverromain.com | +33 4 66 22 XX XX</p>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
 </body>
 </html>

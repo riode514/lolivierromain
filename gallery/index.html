@@ -3,274 +3,123 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gallery - L'Oliver Romain</title>
+    <title>Gallery | L'Oliver Romain</title>
     <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Cardo:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --cream: #F5F5F2;
-            --taupe: #342E2E;
-            --olive: #7B8B5A;
-            --lavender: #A08BA5;
-            --soft-white: #FEFEFE;
-            --light-taupe: #6B5F5F;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Cardo', serif;
-            line-height: 1.7;
-            color: var(--taupe);
-            background: var(--cream);
-            font-size: 1.1rem;
-            padding: 2rem;
-        }
-
-        h1, h2 {
-            font-family: 'Marcellus', serif;
-            font-weight: normal;
-            letter-spacing: 0.5px;
-        }
-
-        .section-title {
-            font-size: 3rem;
-            text-align: center;
-            margin-bottom: 1rem;
-            color: var(--taupe);
-        }
-
-        .section-subtitle {
-            text-align: center;
-            font-style: italic;
-            font-size: 1.3rem;
-            color: var(--light-taupe);
-            margin-bottom: 4rem;
-        }
-
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 1.5rem;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .gallery-item {
-            height: 300px;
-            border-radius: 12px;
-            overflow: hidden;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            position: relative;
-            cursor: pointer;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-        }
-
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.3s ease;
-        }
-
-        .gallery-item:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 12px 40px rgba(0,0,0,0.2);
-        }
-
-        .gallery-item:hover img {
-            transform: scale(1.05);
-        }
-
-        .gallery-item::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(45deg, rgba(123, 139, 90, 0.0), rgba(160, 139, 165, 0.0));
-            transition: background 0.3s ease;
-            pointer-events: none;
-        }
-
-        .gallery-item:hover::after {
-            background: linear-gradient(45deg, rgba(123, 139, 90, 0.1), rgba(160, 139, 165, 0.1));
-        }
-
-        /* Gallery item variations for different sizes */
-        .gallery-item:nth-child(1), .gallery-item:nth-child(7), .gallery-item:nth-child(13) {
-            grid-column: span 2;
-            height: 400px;
-        }
-
-        .gallery-item:nth-child(3), .gallery-item:nth-child(9), .gallery-item:nth-child(15) {
-            height: 350px;
-        }
-
-        @media (max-width: 768px) {
-            .gallery-grid {
-                grid-template-columns: 1fr;
-                gap: 1rem;
-            }
-            
-            .gallery-item:nth-child(1), .gallery-item:nth-child(7), .gallery-item:nth-child(13) {
-                grid-column: span 1;
-                height: 300px;
-            }
-            
-            .section-title {
-                font-size: 2.5rem;
-            }
-        }
-
-        .lightbox {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.9);
-            z-index: 1000;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .lightbox img {
-            max-width: 90%;
-            max-height: 90%;
-            object-fit: contain;
-        }
-
-        .lightbox .close {
-            position: absolute;
-            top: 20px;
-            right: 30px;
-            color: white;
-            font-size: 2rem;
-            cursor: pointer;
-        }
-    </style>
+    <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body>
-    <h2 class="section-title">Gallery</h2>
-    <p class="section-subtitle">Glimpses of Provençal paradise</p>
-    
-    <div class="gallery-grid">
-        <div class="gallery-item">
-            <img src="facade.jpg" alt="Beautiful facade of L'Oliver Romain">
-        </div>
-        
-        <div class="gallery-item">
-            <img src="french-breakfast.jpg" alt="French breakfast spread">
-        </div>
-        
-        <div class="gallery-item">
-            <img src="pool.jpg" alt="Swimming pool area">
-        </div>
-        
-        <div class="gallery-item">
-            <img src="bedroom.jpg" alt="Elegant bedroom with traditional decor">
-        </div>
-        
-        <div class="gallery-item">
-            <img src="bathroom.jpg" alt="Luxury bathroom">
-        </div>
-        
-        <div class="gallery-item">
-            <img src="living-room.jpg" alt="Comfortable living room">
-        </div>
-        
-        <div class="gallery-item">
-            <img src="facade2.jpg" alt="Another view of the property facade">
-        </div>
-        
-        <div class="gallery-item">
-            <img src="terrace.jpg" alt="Terrace with scenic views">
-        </div>
-        
-        <div class="gallery-item">
-            <img src="bedroom2.jpg" alt="Second bedroom with rustic charm">
-        </div>
-        
-        <div class="gallery-item">
-            <img src="bathroom2.jpg" alt="Second bathroom with modern amenities">
-        </div>
-        
-        <div class="gallery-item">
-            <img src="pool2.jpg" alt="Pool area from different angle">
-        </div>
-        
-        <div class="gallery-item">
-            <img src="entrance.jpg" alt="Welcoming entrance to the property">
-        </div>
-        
-        <div class="gallery-item">
-            <img src="facade-pool.jpg" alt="Facade view with pool area">
-        </div>
-        
-        <div class="gallery-item">
-            <img src="bedroom3.jpg" alt="Third bedroom with cozy atmosphere">
-        </div>
-        
-        <div class="gallery-item">
-            <img src="living-room2.jpg" alt="Additional living space">
-        </div>
-        
-        <div class="gallery-item">
-            <img src="bedroom4.jpg" alt="Fourth bedroom with traditional features">
-        </div>
-        
-        <div class="gallery-item">
-            <img src="facade3.jpg" alt="Third facade view showing architecture">
-        </div>
-        
-        <div class="gallery-item">
-            <img src="petit-dejeuner-2_2048x2048.jpg" alt="Delicious French breakfast presentation">
+    <!-- Header -->
+    <header id="header">
+        <nav>
+            <a href="/" class="logo">L'Oliver Romain</a>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/gallery" class="active">Gallery</a></li>
+                <li><a href="/rooms">Rooms</a></li>
+                <li><a href="/experiences">Experiences</a></li>
+                <li><a href="/thehost">The Host</a></li>
+                <li><a href="/booking">Booking</a></li>
+            </ul>
+            <div class="mobile-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+        <div class="container">
+            <nav class="breadcrumb-nav">
+                <a href="/">Home</a>
+                <span>/</span>
+                <span>Gallery</span>
+            </nav>
         </div>
     </div>
 
-    <!-- Lightbox for full-size viewing -->
-    <div class="lightbox" id="lightbox">
-        <span class="close">&times;</span>
-        <img id="lightbox-img" src="" alt="">
-    </div>
+    <!-- Page Header -->
+    <section class="page-header" style="background-image: url('assets/images/gallery-header.jpg');">
+        <div class="page-header-content">
+            <h1>Gallery</h1>
+            <p class="subtitle">Glimpses of Provençal paradise</p>
+        </div>
+    </section>
 
-    <script>
-        // Lightbox functionality
-        const galleryItems = document.querySelectorAll('.gallery-item img');
-        const lightbox = document.getElementById('lightbox');
-        const lightboxImg = document.getElementById('lightbox-img');
-        const closeBtn = document.querySelector('.close');
+    <!-- Gallery Grid -->
+    <section class="content-section">
+        <div class="container">
+            <div class="gallery-grid">
+                <div class="gallery-item" style="background-image: url('assets/images/gallery-1.jpg');"></div>
+                <div class="gallery-item" style="background-image: url('assets/images/gallery-2.jpg');"></div>
+                <div class="gallery-item" style="background-image: url('assets/images/gallery-3.jpg');"></div>
+                <div class="gallery-item" style="background-image: url('assets/images/gallery-4.jpg');"></div>
+                <div class="gallery-item" style="background-image: url('assets/images/gallery-5.jpg');"></div>
+                <div class="gallery-item" style="background-image: url('assets/images/gallery-6.jpg');"></div>
+                <div class="gallery-item" style="background-image: url('assets/images/gallery-7.jpg');"></div>
+                <div class="gallery-item" style="background-image: url('assets/images/gallery-8.jpg');"></div>
+                <div class="gallery-item" style="background-image: url('assets/images/gallery-9.jpg');"></div>
+                <div class="gallery-item" style="background-image: url('assets/images/gallery-10.jpg');"></div>
+                <div class="gallery-item" style="background-image: url('assets/images/gallery-11.jpg');"></div>
+                <div class="gallery-item" style="background-image: url('assets/images/gallery-12.jpg');"></div>
+            </div>
+        </div>
+    </section>
 
-        galleryItems.forEach(item => {
-            item.addEventListener('click', function() {
-                lightbox.style.display = 'flex';
-                lightboxImg.src = this.src;
-                lightboxImg.alt = this.alt;
-            });
-        });
+    <!-- Gallery Categories -->
+    <section class="content-section">
+        <div class="container">
+            <h2 class="section-title">Explore Our Spaces</h2>
+            <div class="experience-moments">
+                <div class="moment">
+                    <div class="moment-image" style="background-image: url('assets/images/exterior-spaces.jpg');"></div>
+                    <div class="moment-content">
+                        <h4>Exterior Spaces</h4>
+                        <p>Discover our beautiful courtyards, Mediterranean gardens, and peaceful pool area surrounded by ancient olive trees and fragrant lavender.</p>
+                    </div>
+                </div>
+                
+                <div class="moment">
+                    <div class="moment-image" style="background-image: url('assets/images/interior-spaces.jpg');"></div>
+                    <div class="moment-content">
+                        <h4>Interior Spaces</h4>
+                        <p>Step inside our elegantly appointed rooms, featuring original architectural details, exposed stone walls, and carefully curated furnishings.</p>
+                    </div>
+                </div>
+                
+                <div class="moment">
+                    <div class="moment-image" style="background-image: url('assets/images/local-area.jpg');"></div>
+                    <div class="moment-content">
+                        <h4>Local Area</h4>
+                        <p>Explore the charming village of Saint-Siffret and the surrounding Languedoc countryside, with its vineyards, markets, and historic towns.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-        closeBtn.addEventListener('click', function() {
-            lightbox.style.display = 'none';
-        });
+    <!-- Photo Collection Info -->
+    <section class="content-section">
+        <div class="container">
+            <div class="about-text">
+                <h2 class="section-title">Our Photography</h2>
+                <p>Each image in our gallery has been carefully selected to showcase the authentic beauty and character of L'Oliver Romain. From the golden morning light filtering through olive leaves to the warm glow of evening on ancient stone walls, our photographs capture the essence of what makes your stay with us truly special.</p>
+                
+                <p>We believe that a picture speaks a thousand words, and our gallery tells the story of a place where time slows down, where every corner holds beauty, and where the art of living well is practiced daily. These glimpses into our world await your own personal discovery.</p>
+            </div>
+        </div>
+    </section>
 
-        lightbox.addEventListener('click', function(e) {
-            if (e.target === lightbox) {
-                lightbox.style.display = 'none';
-            }
-        });
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 L'Oliver Romain. All rights reserved.</p>
+            <p class="footer-contact">For inquiries: hello@loliverromain.com | +33 4 66 22 XX XX</p>
+        </div>
+    </footer>
 
-        // Keyboard navigation
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape') {
-                lightbox.style.display = 'none';
-            }
-        });
-    </script>
+    <script src="assets/js/main.js"></script>
 </body>
 </html>

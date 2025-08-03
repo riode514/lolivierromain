@@ -3,540 +3,157 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About - L'Oliver Romain</title>
+    <title>About | L'Oliver Romain</title>
     <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Cardo:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --cream: #F5F5F2;
-            --taupe: #342E2E;
-            --olive: #7B8B5A;
-            --lavender: #A08BA5;
-            --soft-white: #FEFEFE;
-            --light-taupe: #6B5F5F;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Cardo', serif;
-            line-height: 1.7;
-            color: var(--taupe);
-            background: var(--soft-white);
-            font-size: 1.1rem;
-            padding: 2rem;
-        }
-
-        h1, h2, h3 {
-            font-family: 'Marcellus', serif;
-            font-weight: normal;
-            letter-spacing: 0.5px;
-        }
-
-        .section-title {
-            font-size: 3rem;
-            text-align: center;
-            margin-bottom: 1rem;
-            color: var(--taupe);
-        }
-
-        .section-subtitle {
-            text-align: center;
-            font-style: italic;
-            font-size: 1.3rem;
-            color: var(--light-taupe);
-            margin-bottom: 4rem;
-        }
-
-        .about-content {
-            max-width: 900px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .about-text {
-            font-size: 1.2rem;
-            line-height: 1.8;
-            margin-bottom: 4rem;
-        }
-
-        .about-text p {
-            margin-bottom: 2rem;
-            color: var(--light-taupe);
-        }
-
-        .about-text p:first-child {
-            font-size: 1.3rem;
-            color: var(--taupe);
-            font-weight: 500;
-        }
-
-        .hero-image {
-            width: 100%;
-            max-width: 800px;
-            height: 400px;
-            margin: 3rem auto;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
-            position: relative;
-        }
-
-        .hero-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.3s ease;
-        }
-
-        .hero-image:hover img {
-            transform: scale(1.05);
-        }
-
-        .image-gallery {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-            margin: 4rem 0;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .gallery-image {
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow: 0 12px 40px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            height: 300px;
-        }
-
-        .gallery-image:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 60px rgba(0,0,0,0.2);
-        }
-
-        .gallery-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.3s ease;
-        }
-
-        .gallery-image:hover img {
-            transform: scale(1.1);
-        }
-
-        .pool-section {
-            margin: 4rem 0;
-            position: relative;
-        }
-
-        .pool-image {
-            width: 100%;
-            max-width: 700px;
-            height: 350px;
-            margin: 2rem auto;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 16px 48px rgba(0,0,0,0.12);
-            position: relative;
-        }
-
-        .pool-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.3s ease;
-        }
-
-        .pool-image:hover img {
-            transform: scale(1.05);
-        }
-
-        .pool-overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(transparent, rgba(0,0,0,0.7));
-            color: white;
-            padding: 2rem;
-            text-align: center;
-        }
-
-        .pool-overlay h3 {
-            font-size: 1.5rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .pool-overlay p {
-            font-style: italic;
-            opacity: 0.9;
-        }
-
-        .about-features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-top: 4rem;
-        }
-
-        .feature {
-            text-align: center;
-            padding: 2.5rem 2rem;
-            background: var(--cream);
-            border-radius: 16px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .feature::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, var(--olive), var(--lavender));
-        }
-
-        .feature:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 16px 48px rgba(0,0,0,0.1);
-        }
-
-        .feature-icon {
-            font-size: 3rem;
-            margin-bottom: 1.5rem;
-            display: block;
-            transition: transform 0.3s ease;
-        }
-
-        .feature:hover .feature-icon {
-            transform: scale(1.1);
-        }
-
-        .feature h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: var(--taupe);
-        }
-
-        .feature p {
-            color: var(--light-taupe);
-            line-height: 1.6;
-        }
-
-        .stats-section {
-            margin: 4rem 0;
-            padding: 3rem;
-            background: linear-gradient(135deg, var(--olive), var(--lavender));
-            border-radius: 20px;
-            color: white;
-            text-align: center;
-        }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .stat {
-            text-align: center;
-        }
-
-        .stat-number {
-            font-family: 'Marcellus', serif;
-            font-size: 2.5rem;
-            font-weight: bold;
-            display: block;
-            margin-bottom: 0.5rem;
-        }
-
-        .stat-label {
-            font-style: italic;
-            opacity: 0.9;
-        }
-
-        .location-info {
-            margin-top: 4rem;
-            padding: 2rem;
-            background: var(--soft-white);
-            border-radius: 16px;
-            border-left: 4px solid var(--olive);
-        }
-
-        .location-info h3 {
-            color: var(--olive);
-            margin-bottom: 1rem;
-            font-size: 1.4rem;
-        }
-
-        .location-info p {
-            color: var(--light-taupe);
-            margin-bottom: 1rem;
-        }
-
-        .nearby-attractions {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1rem;
-            margin-top: 1.5rem;
-        }
-
-        .attraction {
-            display: flex;
-            align-items: center;
-            gap: 0.8rem;
-            padding: 0.8rem;
-            background: var(--cream);
-            border-radius: 8px;
-        }
-
-        .attraction-icon {
-            font-size: 1.2rem;
-            color: var(--olive);
-        }
-
-        .attraction-text {
-            font-size: 0.95rem;
-            color: var(--taupe);
-        }
-
-        @media (max-width: 768px) {
-            .section-title {
-                font-size: 2.5rem;
-            }
-            
-            body {
-                padding: 1rem;
-            }
-            
-            .about-text {
-                font-size: 1.1rem;
-            }
-            
-            .hero-image {
-                height: 300px;
-                margin: 2rem auto;
-            }
-            
-            .stats-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .image-gallery {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-
-            .gallery-image {
-                height: 250px;
-            }
-
-            .pool-image {
-                height: 280px;
-            }
-        }
-
-        /* Animation for features */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .feature {
-            animation: fadeInUp 0.6s ease forwards;
-        }
-
-        .feature:nth-child(1) { animation-delay: 0.1s; }
-        .feature:nth-child(2) { animation-delay: 0.2s; }
-        .feature:nth-child(3) { animation-delay: 0.3s; }
-
-        .image-caption {
-            text-align: center;
-            font-style: italic;
-            color: var(--light-taupe);
-            margin-top: 1rem;
-            font-size: 0.95rem;
-        }
-    </style>
+    <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body>
-    <h2 class="section-title">About L'Oliver Romain</h2>
-    <p class="section-subtitle">A timeless retreat in the heart of Provence</p>
-    
-    <div class="about-content">
-        <div class="about-text">
-            <p>Located in the charming village of Saint-Siffret, L'Oliver Romain is a beautifully restored 18th-century manor house that captures the essence of authentic Provençal living.</p>
-            
-            <p>Each carefully appointed room showcases original architectural features – from exposed stone walls and terracotta floors to hand-hewn wooden beams that tell stories of centuries past. Our peaceful courtyard, centered around a sparkling pool, provides the perfect sanctuary for relaxation.</p>
-            
-            <p>Located just minutes from the medieval town of Uzès and the cultural riches of Nîmes, L'Oliver Romain serves as your gateway to discovering the authentic Languedoc region, with its renowned vineyards, historic monuments, and vibrant local markets.</p>
-        </div>
+    <!-- Header -->
+    <header id="header">
+        <nav>
+            <a href="/" class="logo">L'Oliver Romain</a>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/about" class="active">About</a></li>
+                <li><a href="/gallery">Gallery</a></li>
+                <li><a href="/rooms">Rooms</a></li>
+                <li><a href="/experiences">Experiences</a></li>
+                <li><a href="/thehost">The Host</a></li>
+                <li><a href="/booking">Booking</a></li>
+            </ul>
+            <div class="mobile-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
 
-        <!-- Main Hero Image -->
-        <div class="hero-image">
-            <img src="assets/images/facade.jpg" alt="L'Oliver Romain - Main Facade">
-        </div>
-        <p class="image-caption">The beautifully restored 18th-century facade welcomes you home</p>
-
-        <div class="stats-section">
-            <h3 style="font-size: 1.8rem; margin-bottom: 1rem;">The Numbers Tell Our Story</h3>
-            <div class="stats-grid">
-                <div class="stat">
-                    <span class="stat-number">1750</span>
-                    <span class="stat-label">Year Built</span>
-                </div>
-                <div class="stat">
-                    <span class="stat-number">4</span>
-                    <span class="stat-label">Luxury Suites</span>
-                </div>
-                <div class="stat">
-                    <span class="stat-number">8</span>
-                    <span class="stat-label">Max Guests</span>
-                </div>
-                <div class="stat">
-                    <span class="stat-number">270</span>
-                    <span class="stat-label">Days of Sunshine</span>
-                </div>
-            </div>
-        </div>
-
-        <!-- Image Gallery -->
-        <div class="image-gallery">
-            <div class="gallery-image">
-                <img src="assets/images/facade3.jpg" alt="L'Oliver Romain - Garden View Facade">
-            </div>
-            <div class="pool-section">
-                <div class="pool-image">
-                    <img src="assets/images/pool.jpg" alt="L'Oliver Romain - Swimming Pool">
-                    <div class="pool-overlay">
-                        <h3>Your Private Oasis</h3>
-                        <p>Serenity awaits in our Mediterranean courtyard</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="about-features">
-            <div class="feature">
-                <span class="feature-icon">🏛️</span>
-                <h3>Historic Charm</h3>
-                <p>A beautifully restored 18th-century manor house that honors its heritage while embracing modern comfort and luxury. Every stone tells a story of centuries past.</p>
-            </div>
-            
-            <div class="feature">
-                <span class="feature-icon">🛏️</span>
-                <h3>Four Unique Suites</h3>
-                <p>Each bedroom offers its own en-suite bathroom and unique character, ensuring privacy and elegance for all guests. No two rooms are alike.</p>
-            </div>
-            
-            <div class="feature">
-                <span class="feature-icon">🏊‍♀️</span>
-                <h3>Private Oasis</h3>
-                <p>A serene pool surrounded by Mediterranean gardens, perfect for morning swims and afternoon reverie. Your own slice of paradise.</p>
-            </div>
-        </div>
-
-        <div class="location-info">
-            <h3>📍 Perfectly Positioned in Provence</h3>
-            <p>Saint-Siffret offers the perfect balance of tranquil village life and accessibility to the region's treasures. Step out your door into authentic French countryside, yet remain just minutes from cultural and culinary delights.</p>
-            
-            <div class="nearby-attractions">
-                <div class="attraction">
-                    <span class="attraction-icon">🏰</span>
-                    <span class="attraction-text">Uzès - 8 minutes</span>
-                </div>
-                <div class="attraction">
-                    <span class="attraction-icon">🏛️</span>
-                    <span class="attraction-text">Nîmes - 25 minutes</span>
-                </div>
-                <div class="attraction">
-                    <span class="attraction-icon">🌉</span>
-                    <span class="attraction-text">Pont du Gard - 15 minutes</span>
-                </div>
-                <div class="attraction">
-                    <span class="attraction-icon">🍷</span>
-                    <span class="attraction-text">Châteauneuf-du-Pape - 45 minutes</span>
-                </div>
-                <div class="attraction">
-                    <span class="attraction-icon">🎨</span>
-                    <span class="attraction-text">Avignon - 35 minutes</span>
-                </div>
-                <div class="attraction">
-                    <span class="attraction-icon">🌊</span>
-                    <span class="attraction-text">Mediterranean Sea - 1 hour</span>
-                </div>
-            </div>
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+        <div class="container">
+            <nav class="breadcrumb-nav">
+                <a href="/">Home</a>
+                <span>/</span>
+                <span>About</span>
+            </nav>
         </div>
     </div>
 
-    <script>
-        // Add scroll-triggered animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
+    <!-- Page Header -->
+    <section class="page-header" style="background-image: url('assets/images/manor-exterior.jpg');">
+        <div class="page-header-content">
+            <h1>About L'Oliver Romain</h1>
+            <p class="subtitle">A timeless retreat in the heart of Provence</p>
+        </div>
+    </section>
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
+    <!-- About Content -->
+    <section class="content-section">
+        <div class="container">
+            <div class="about-text">
+                <p>Located in the charming village of Saint-Siffret, L'Oliver Romain is a beautifully restored 18th-century manor house that captures the essence of authentic Provençal living. Our intimate guesthouse offers a refined escape where history meets modern comfort.</p>
+                
+                <p>Each carefully appointed room showcases original architectural features – from exposed stone walls and terracotta floors to hand-hewn wooden beams that tell stories of centuries past. Our peaceful courtyard, centered around a sparkling pool, provides the perfect sanctuary for relaxation.</p>
+                
+                <p>Located just minutes from the medieval town of Uzès and the cultural riches of Nîmes, L'Oliver Romain serves as your gateway to discovering the authentic Languedoc region, with its renowned vineyards, historic monuments, and vibrant local markets.</p>
+            </div>
+        </div>
+    </section>
 
-        document.querySelectorAll('.feature, .stats-section, .location-info, .gallery-image, .pool-image').forEach(element => {
-            observer.observe(element);
-        });
+    <!-- Features Section -->
+    <section class="content-section">
+        <div class="container">
+            <h2 class="section-title">What Makes Us Special</h2>
+            
+            <div class="overview-features">
+                <div class="feature">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                            <polyline points="9,22 9,12 15,12 15,22"/>
+                        </svg>
+                    </div>
+                    <h3>Historic Charm</h3>
+                    <p>A beautifully restored 18th-century manor house that honors its heritage while embracing modern comfort and luxury.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+                            <line x1="8" y1="21" x2="16" y2="21"/>
+                            <line x1="12" y1="17" x2="12" y2="21"/>
+                        </svg>
+                    </div>
+                    <h3>Four Suites</h3>
+                    <p>Each bedroom offers its own en-suite bathroom and unique character, ensuring privacy and elegance for all guests.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <circle cx="12" cy="12" r="10"/>
+                            <path d="M8 14s1.5 2 4 2 4-2 4-2"/>
+                            <line x1="9" y1="9" x2="9.01" y2="9"/>
+                            <line x1="15" y1="9" x2="15.01" y2="9"/>
+                        </svg>
+                    </div>
+                    <h3>Private Pool</h3>
+                    <p>A serene oasis surrounded by Mediterranean gardens, perfect for morning swims and afternoon reverie.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                            <circle cx="12" cy="10" r="3"/>
+                        </svg>
+                    </div>
+                    <h3>Prime Location</h3>
+                    <p>Minutes from Uzès and Nîmes, perfectly positioned to explore the treasures of the Languedoc region.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                        </svg>
+                    </div>
+                    <h3>Personal Service</h3>
+                    <p>Curated by Neil, our British host who brings local insight and attention to every detail of your stay.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+                        </svg>
+                    </div>
+                    <h3>Authentic Experience</h3>
+                    <p>Immerse yourself in true Provençal living with access to local markets, vineyards, and cultural treasures.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-        // Add counter animation for stats
-        const animateCounter = (element, target) => {
-            let current = 0;
-            const increment = target / 100;
-            const timer = setInterval(() => {
-                current += increment;
-                element.textContent = Math.floor(current);
-                if (current >= target) {
-                    element.textContent = target;
-                    clearInterval(timer);
-                }
-            }, 20);
-        };
+    <!-- History Section -->
+    <section class="content-section">
+        <div class="container">
+            <h2 class="section-title">Our History</h2>
+            <div class="about-text">
+                <p>The manor house that is now L'Oliver Romain was built in the late 18th century by a prosperous silk merchant family. The original architecture reflects the wealth and sophistication of the period, with its elegant proportions, refined stonework, and carefully planned courtyards.</p>
+                
+                <p>For over two centuries, the house has witnessed the changing rhythms of Provençal life – from the bustling silk trade to the quiet agricultural traditions that define the region today. Each room tells a story through its preserved architectural details: the hand-carved wooden shutters, the original terra cotta floor tiles, and the massive stone fireplaces that warmed generations of families.</p>
+                
+                <p>Our careful restoration has honored this rich heritage while creating a space that serves today's travelers seeking authentic connection to the timeless beauty of southern France.</p>
+            </div>
+        </div>
+    </section>
 
-        // Trigger counter animations when stats section is visible
-        const statsObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const statNumbers = entry.target.querySelectorAll('.stat-number');
-                    statNumbers.forEach(stat => {
-                        const target = parseInt(stat.textContent);
-                        animateCounter(stat, target);
-                    });
-                    statsObserver.unobserve(entry.target);
-                }
-            });
-        });
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 L'Oliver Romain. All rights reserved.</p>
+            <p class="footer-contact">For inquiries: hello@loliverromain.com | +33 4 66 22 XX XX</p>
+        </div>
+    </footer>
 
-        const statsSection = document.querySelector('.stats-section');
-        if (statsSection) {
-            statsObserver.observe(statsSection);
-        }
-    </script>
+    <script src="assets/js/main.js"></script>
 </body>
 </html>

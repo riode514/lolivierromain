@@ -3,257 +3,172 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rooms - L'Oliver Romain</title>
+    <title>Rooms | L'Oliver Romain</title>
     <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Cardo:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --cream: #F5F5F2;
-            --taupe: #342E2E;
-            --olive: #7B8B5A;
-            --lavender: #A08BA5;
-            --soft-white: #FEFEFE;
-            --light-taupe: #6B5F5F;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Cardo', serif;
-            line-height: 1.7;
-            color: var(--taupe);
-            background: var(--soft-white);
-            font-size: 1.1rem;
-            padding: 2rem;
-        }
-
-        h1, h2 {
-            font-family: 'Marcellus', serif;
-            font-weight: normal;
-            letter-spacing: 0.5px;
-        }
-
-        .section-title {
-            font-size: 3rem;
-            text-align: center;
-            margin-bottom: 1rem;
-            color: var(--taupe);
-        }
-
-        .section-subtitle {
-            text-align: center;
-            font-style: italic;
-            font-size: 1.3rem;
-            color: var(--light-taupe);
-            margin-bottom: 4rem;
-        }
-
-        .rooms-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .room-card {
-            background: var(--cream);
-            border-radius: 16px;
-            overflow: hidden;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border: 1px solid rgba(123, 139, 90, 0.1);
-            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
-        }
-
-        .room-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 16px 48px rgba(0,0,0,0.15);
-        }
-
-        .room-image {
-            width: 100%;
-            height: 280px;
-            background-size: cover;
-            background-position: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .room-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.3s ease;
-        }
-
-        .room-card:hover .room-image img {
-            transform: scale(1.05);
-        }
-
-        .room-content {
-            padding: 2rem;
-            text-align: center;
-        }
-
-        .room-card h3 {
-            font-family: 'Marcellus', serif;
-            font-size: 1.8rem;
-            color: var(--olive);
-            margin-bottom: 1rem;
-            letter-spacing: 0.5px;
-        }
-
-        .room-description {
-            font-style: italic;
-            color: var(--light-taupe);
-            line-height: 1.8;
-            font-size: 1rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .room-features {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            flex-wrap: wrap;
-            margin-top: 1rem;
-        }
-
-        .feature-tag {
-            background: var(--olive);
-            color: white;
-            padding: 0.3rem 0.8rem;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-family: 'Marcellus', serif;
-        }
-
-        @media (max-width: 1024px) {
-            .rooms-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        @media (max-width: 768px) {
-            .rooms-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .section-title {
-                font-size: 2.5rem;
-            }
-            
-            body {
-                padding: 1rem;
-            }
-        }
-
-        /* Room-specific styling */
-        .lavande {
-            border-left: 4px solid #967BB6;
-        }
-
-        .figuier {
-            border-left: 4px solid #8B4513;
-        }
-
-        .amande {
-            border-left: 4px solid #F5DEB3;
-        }
-
-        .pierre {
-            border-left: 4px solid #696969;
-        }
-    </style>
+    <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body>
-    <h2 class="section-title">Rooms</h2>
-    <p class="section-subtitle">Four unique sanctuaries of comfort</p>
-    
-    <div class="rooms-grid">
-        <!-- La Lavande - Using bedroom.jpg -->
-        <div class="room-card lavande">
-            <div class="room-image">
-                <img src="assets/images/bedroom.jpg" alt="La Lavande bedroom">
+    <!-- Header -->
+    <header id="header">
+        <nav>
+            <a href="/" class="logo">L'Oliver Romain</a>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/gallery">Gallery</a></li>
+                <li><a href="/rooms" class="active">Rooms</a></li>
+                <li><a href="/experiences">Experiences</a></li>
+                <li><a href="/thehost">The Host</a></li>
+                <li><a href="/booking">Booking</a></li>
+            </ul>
+            <div class="mobile-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
             </div>
-            <div class="room-content">
-                <h3>La Lavande</h3>
-                <p class="room-description">A serene sanctuary where purple hues and the gentle scent of lavender create an atmosphere of pure tranquility. The room opens to views of the garden's herb borders.</p>
-                <div class="room-features">
-                    <span class="feature-tag">En-suite Bath</span>
-                    <span class="feature-tag">Garden View</span>
-                    <span class="feature-tag">Stone Walls</span>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Le Figuier - Using bedroom2.jpg -->
-        <div class="room-card figuier">
-            <div class="room-image">
-                <img src="assets/images/bedroom2.jpg" alt="Le Figuier bedroom">
-            </div>
-            <div class="room-content">
-                <h3>Le Figuier</h3>
-                <p class="room-description">Beneath the shade of ancient fig trees, this room captures the essence of Provence with warm terracotta tones and rustic wooden beams that tell stories of generations past.</p>
-                <div class="room-features">
-                    <span class="feature-tag">Exposed Beams</span>
-                    <span class="feature-tag">Terracotta Floors</span>
-                    <span class="feature-tag">Historic Charm</span>
-                </div>
-            </div>
-        </div>
-        
-        <!-- L'Amande - Using bedroom3.jpg -->
-        <div class="room-card amande">
-            <div class="room-image">
-                <img src="bedroom3.jpg" alt="L'Amande bedroom">
-            </div>
-            <div class="room-content">
-                <h3>L'Amande</h3>
-                <p class="room-description">Soft almond whites and natural textures create a cocoon of comfort. French doors open to a private terrace where morning coffee becomes a sacred ritual.</p>
-                <div class="room-features">
-                    <span class="feature-tag">Private Terrace</span>
-                    <span class="feature-tag">French Doors</span>
-                    <span class="feature-tag">Morning Light</span>
-                </div>
-            </div>
-        </div>
-        
-        <!-- La Pierre - Using bedroom4.jpg -->
-        <div class="room-card pierre">
-            <div class="room-image">
-                <img src="bedroom4.jpg" alt="La Pierre bedroom">
-            </div>
-            <div class="room-content">
-                <h3>La Pierre</h3>
-                <p class="room-description">Honoring the ancient stonework of Provence, this room blends original architecture with contemporary luxury, creating a timeless retreat for the soul.</p>
-                <div class="room-features">
-                    <span class="feature-tag">Stone Features</span>
-                    <span class="feature-tag">Original Architecture</span>
-                    <span class="feature-tag">Contemporary Luxury</span>
-                </div>
-            </div>
+        </nav>
+    </header>
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+        <div class="container">
+            <nav class="breadcrumb-nav">
+                <a href="/">Home</a>
+                <span>/</span>
+                <span>Rooms</span>
+            </nav>
         </div>
     </div>
 
-    <script>
-        // Add subtle parallax effect to room images
-        const roomCards = document.querySelectorAll('.room-card');
-        
-        roomCards.forEach(card => {
-            card.addEventListener('mouseenter', function() {
-                const image = this.querySelector('.room-image img');
-                image.style.transform = 'scale(1.1)';
-            });
-            
-            card.addEventListener('mouseleave', function() {
-                const image = this.querySelector('.room-image img');
-                image.style.transform = 'scale(1.0)';
-            });
-        });
-    </script>
+    <!-- Page Header -->
+    <section class="page-header" style="background-image: url('assets/images/rooms-header.jpg');">
+        <div class="page-header-content">
+            <h1>Our Rooms</h1>
+            <p class="subtitle">Four unique sanctuaries of comfort</p>
+        </div>
+    </section>
+
+    <!-- Rooms Grid -->
+    <section class="content-section">
+        <div class="container">
+            <div class="rooms-grid">
+                <div class="room-card">
+                    <div class="room-image" style="background-image: url('assets/images/room-lavande.jpg');"></div>
+                    <div class="room-content">
+                        <h3>La Lavande</h3>
+                        <p class="room-description">A serene sanctuary where purple hues and the gentle scent of lavender create an atmosphere of pure tranquility. The room opens to views of the garden's herb borders, with original stone walls and a private en-suite bathroom featuring vintage fixtures.</p>
+                        <div class="room-amenities">
+                            <p><strong>Amenities:</strong> En-suite bathroom, Garden view, Original stone walls, Premium linens</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="room-card">
+                    <div class="room-image" style="background-image: url('assets/images/room-figuier.jpg');"></div>
+                    <div class="room-content">
+                        <h3>Le Figuier</h3>
+                        <p class="room-description">Beneath the shade of ancient fig trees, this room captures the essence of Provence with warm terracotta tones and rustic wooden beams that tell stories of generations past. French doors open to a private terrace overlooking the courtyard.</p>
+                        <div class="room-amenities">
+                            <p><strong>Amenities:</strong> Private terrace, Exposed beams, En-suite bathroom, Courtyard view</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="room-card">
+                    <div class="room-image" style="background-image: url('assets/images/room-amande.jpg');"></div>
+                    <div class="room-content">
+                        <h3>L'Amande</h3>
+                        <p class="room-description">Soft almond whites and natural textures create a cocoon of comfort. French doors open to a private terrace where morning coffee becomes a sacred ritual. The room features original terracotta floors and a beautifully appointed bathroom.</p>
+                        <div class="room-amenities">
+                            <p><strong>Amenities:</strong> Private terrace, Terracotta floors, En-suite bathroom, Morning sun exposure</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="room-card">
+                    <div class="room-image" style="background-image: url('assets/images/room-pierre.jpg');"></div>
+                    <div class="room-content">
+                        <h3>La Pierre</h3>
+                        <p class="room-description">Honoring the ancient stonework of Provence, this room blends original architecture with contemporary luxury, creating a timeless retreat for the soul. Features include vaulted stone ceilings and a spa-like bathroom with natural stone details.</p>
+                        <div class="room-amenities">
+                            <p><strong>Amenities:</strong> Vaulted ceilings, Stone details, Spa-like bathroom, Pool view</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Room Features -->
+    <section class="content-section">
+        <div class="container">
+            <h2 class="section-title">Room Features</h2>
+            <div class="overview-features">
+                <div class="feature">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+                            <line x1="8" y1="21" x2="16" y2="21"/>
+                            <line x1="12" y1="17" x2="12" y2="21"/>
+                        </svg>
+                    </div>
+                    <h3>En-suite Bathrooms</h3>
+                    <p>Each room features its own private bathroom with premium fixtures, locally sourced toiletries, and plush towels.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M9 19c-5 0-8-3-8-8s3-8 8-8 8 3 8 8-3 8-8 8z"/>
+                            <path d="M15 11h4a2 2 0 0 1 2 2v7"/>
+                        </svg>
+                    </div>
+                    <h3>Climate Control</h3>
+                    <p>Individual climate control in each room ensures your comfort throughout the seasons.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/>
+                            <path d="M16 3h4a2 2 0 0 1 2 2v6"/>
+                            <path d="M6 3H2a2 2 0 0 0-2 2v6"/>
+                        </svg>
+                    </div>
+                    <h3>Premium Linens</h3>
+                    <p>Egyptian cotton sheets and down pillows ensure a restful night's sleep in luxurious comfort.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                            <rect x="7" y="7" width="10" height="10" rx="1" ry="1"/>
+                        </svg>
+                    </div>
+                    <h3>Garden Views</h3>
+                    <p>All rooms offer beautiful views of our Mediterranean gardens, olive groves, or peaceful courtyard.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking CTA -->
+    <section class="content-section">
+        <div class="container">
+            <div style="text-align: center; padding: 4rem 0;">
+                <h2 class="section-title">Ready to Experience Provence?</h2>
+                <p class="section-subtitle">Book your perfect room at L'Oliver Romain</p>
+                <a href="/booking" class="cta-button" style="color: var(--taupe); border-color: var(--taupe);">Book Your Stay</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 L'Oliver Romain. All rights reserved.</p>
+            <p class="footer-contact">For inquiries: hello@loliverromain.com | +33 4 66 22 XX XX</p>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
 </body>
 </html>
