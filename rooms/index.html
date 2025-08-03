@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rooms - L'Oliver Romain</title>
+    <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Cardo:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --cream: #F5F5F2;
+            --taupe: #342E2E;
+            --olive: #7B8B5A;
+            --lavender: #A08BA5;
+            --soft-white: #FEFEFE;
+            --light-taupe: #6B5F5F;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Cardo', serif;
+            line-height: 1.7;
+            color: var(--taupe);
+            background: var(--soft-white);
+            font-size: 1.1rem;
+            padding: 2rem;
+        }
+
+        h1, h2 {
+            font-family: 'Marcellus', serif;
+            font-weight: normal;
+            letter-spacing: 0.5px;
+        }
+
+        .section-title {
+            font-size: 3rem;
+            text-align: center;
+            margin-bottom: 1rem;
+            color: var(--taupe);
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-style: italic;
+            font-size: 1.3rem;
+            color: var(--light-taupe);
+            margin-bottom: 4rem;
+        }
+
+        .rooms-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .room-card {
+            background: var(--cream);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid rgba(123, 139, 90, 0.1);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+        }
+
+        .room-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 16px 48px rgba(0,0,0,0.15);
+        }
+
+        .room-image {
+            width: 100%;
+            height: 280px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .room-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .room-card:hover .room-image img {
+            transform: scale(1.05);
+        }
+
+        .room-content {
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .room-card h3 {
+            font-family: 'Marcellus', serif;
+            font-size: 1.8rem;
+            color: var(--olive);
+            margin-bottom: 1rem;
+            letter-spacing: 0.5px;
+        }
+
+        .room-description {
+            font-style: italic;
+            color: var(--light-taupe);
+            line-height: 1.8;
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .room-features {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+        }
+
+        .feature-tag {
+            background: var(--olive);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-family: 'Marcellus', serif;
+        }
+
+        @media (max-width: 1024px) {
+            .rooms-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .rooms-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .section-title {
+                font-size: 2.5rem;
+            }
+            
+            body {
+                padding: 1rem;
+            }
+        }
+
+        /* Room-specific styling */
+        .lavande {
+            border-left: 4px solid #967BB6;
+        }
+
+        .figuier {
+            border-left: 4px solid #8B4513;
+        }
+
+        .amande {
+            border-left: 4px solid #F5DEB3;
+        }
+
+        .pierre {
+            border-left: 4px solid #696969;
+        }
+    </style>
+</head>
+<body>
+    <h2 class="section-title">Rooms</h2>
+    <p class="section-subtitle">Four unique sanctuaries of comfort</p>
+    
+    <div class="rooms-grid">
+        <!-- La Lavande - Using bedroom.jpg -->
+        <div class="room-card lavande">
+            <div class="room-image">
+                <img src="assets/images/bedroom.jpg" alt="La Lavande bedroom">
+            </div>
+            <div class="room-content">
+                <h3>La Lavande</h3>
+                <p class="room-description">A serene sanctuary where purple hues and the gentle scent of lavender create an atmosphere of pure tranquility. The room opens to views of the garden's herb borders.</p>
+                <div class="room-features">
+                    <span class="feature-tag">En-suite Bath</span>
+                    <span class="feature-tag">Garden View</span>
+                    <span class="feature-tag">Stone Walls</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Le Figuier - Using bedroom2.jpg -->
+        <div class="room-card figuier">
+            <div class="room-image">
+                <img src="assets/images/bedroom2.jpg" alt="Le Figuier bedroom">
+            </div>
+            <div class="room-content">
+                <h3>Le Figuier</h3>
+                <p class="room-description">Beneath the shade of ancient fig trees, this room captures the essence of Provence with warm terracotta tones and rustic wooden beams that tell stories of generations past.</p>
+                <div class="room-features">
+                    <span class="feature-tag">Exposed Beams</span>
+                    <span class="feature-tag">Terracotta Floors</span>
+                    <span class="feature-tag">Historic Charm</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- L'Amande - Using bedroom3.jpg -->
+        <div class="room-card amande">
+            <div class="room-image">
+                <img src="bedroom3.jpg" alt="L'Amande bedroom">
+            </div>
+            <div class="room-content">
+                <h3>L'Amande</h3>
+                <p class="room-description">Soft almond whites and natural textures create a cocoon of comfort. French doors open to a private terrace where morning coffee becomes a sacred ritual.</p>
+                <div class="room-features">
+                    <span class="feature-tag">Private Terrace</span>
+                    <span class="feature-tag">French Doors</span>
+                    <span class="feature-tag">Morning Light</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- La Pierre - Using bedroom4.jpg -->
+        <div class="room-card pierre">
+            <div class="room-image">
+                <img src="bedroom4.jpg" alt="La Pierre bedroom">
+            </div>
+            <div class="room-content">
+                <h3>La Pierre</h3>
+                <p class="room-description">Honoring the ancient stonework of Provence, this room blends original architecture with contemporary luxury, creating a timeless retreat for the soul.</p>
+                <div class="room-features">
+                    <span class="feature-tag">Stone Features</span>
+                    <span class="feature-tag">Original Architecture</span>
+                    <span class="feature-tag">Contemporary Luxury</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Add subtle parallax effect to room images
+        const roomCards = document.querySelectorAll('.room-card');
+        
+        roomCards.forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                const image = this.querySelector('.room-image img');
+                image.style.transform = 'scale(1.1)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                const image = this.querySelector('.room-image img');
+                image.style.transform = 'scale(1.0)';
+            });
+        });
+    </script>
+</body>
+</html>

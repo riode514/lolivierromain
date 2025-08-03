@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Experience - L'Oliver Romain</title>
+    <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Cardo:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --cream: #F5F5F2;
+            --taupe: #342E2E;
+            --olive: #7B8B5A;
+            --lavender: #A08BA5;
+            --soft-white: #FEFEFE;
+            --light-taupe: #6B5F5F;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Cardo', serif;
+            line-height: 1.7;
+            color: var(--taupe);
+            background: var(--cream);
+            font-size: 1.1rem;
+            padding: 2rem;
+        }
+
+        h1, h2, h4 {
+            font-family: 'Marcellus', serif;
+            font-weight: normal;
+            letter-spacing: 0.5px;
+        }
+
+        .section-title {
+            font-size: 3rem;
+            text-align: center;
+            margin-bottom: 1rem;
+            color: var(--taupe);
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-style: italic;
+            font-size: 1.3rem;
+            color: var(--light-taupe);
+            margin-bottom: 4rem;
+        }
+
+        .experience-content {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .experience-text {
+            font-size: 1.3rem;
+            line-height: 1.8;
+            font-style: italic;
+            margin-bottom: 4rem;
+            color: var(--light-taupe);
+        }
+
+        .experience-text p {
+            margin-bottom: 2rem;
+        }
+
+        .experience-moments {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .moment {
+            background: var(--soft-white);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+        }
+
+        .moment:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 16px 48px rgba(0,0,0,0.15);
+        }
+
+        .moment-image {
+            width: 100%;
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .moment-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .moment:hover .moment-image img {
+            transform: scale(1.05);
+        }
+
+        .moment-content {
+            padding: 2rem;
+            text-align: left;
+        }
+
+        .moment h4 {
+            font-size: 1.5rem;
+            color: var(--taupe);
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .moment p {
+            color: var(--light-taupe);
+            line-height: 1.7;
+            font-size: 1rem;
+        }
+
+        .moment-time {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: rgba(123, 139, 90, 0.9);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-family: 'Marcellus', serif;
+        }
+
+        /* Individual moment styling */
+        .morning {
+            border-left: 4px solid #FFD700;
+        }
+
+        .afternoon {
+            border-left: 4px solid #87CEEB;
+        }
+
+        .evening {
+            border-left: 4px solid #DDA0DD;
+        }
+
+        @media (max-width: 768px) {
+            .experience-moments {
+                grid-template-columns: 1fr;
+            }
+            
+            .section-title {
+                font-size: 2.5rem;
+            }
+            
+            body {
+                padding: 1rem;
+            }
+            
+            .experience-text {
+                font-size: 1.1rem;
+            }
+        }
+
+        /* Animation for moments appearing */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .moment {
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        .moment:nth-child(1) {
+            animation-delay: 0.1s;
+        }
+
+        .moment:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .moment:nth-child(3) {
+            animation-delay: 0.3s;
+        }
+    </style>
+</head>
+<body>
+    <h2 class="section-title">The Experience</h2>
+    <p class="section-subtitle">Embrace the rhythm of Provence</p>
+    
+    <div class="experience-content">
+        <div class="experience-text">
+            <p>At L'Oliver Romain, every moment is an invitation to slow down and savor life's simple pleasures. Feel the warmth of ancient stone beneath your feet, breathe in the perfume of wild rosemary and thyme, and let the golden light of late afternoon wash over your skin.</p>
+            
+            <p>Here, time moves differently. Mornings begin with the soft rustle of olive leaves, afternoons stretch lazily by the pool, and evenings are painted in shades of rosé and conversation that flows as naturally as the nearby rivers.</p>
+        </div>
+
+        <div class="experience-moments">
+            <!-- Morning Rituals - Using French breakfast image -->
+            <div class="moment morning">
+                <div class="moment-time">7:00 - 10:00</div>
+                <div class="moment-image">
+                    <img src="assets/images/french-breakfast.jpg" alt="Morning breakfast">
+                </div>
+                <div class="moment-content">
+                    <h4>Morning Rituals</h4>
+                    <p>Greet the day with fresh croissants and locally sourced orange juice on the terrace, as the morning sun filters through ancient olive groves. The gentle clinking of coffee cups mingles with birdsong, creating a symphony of simple pleasures.</p>
+                </div>
+            </div>
+            
+            <!-- Poolside Afternoons - Using pool image -->
+            <div class="moment afternoon">
+                <div class="moment-time">12:00 - 17:00</div>
+                <div class="moment-image">
+                    <img src="assets/images/pool2.jpg" alt="Pool afternoon">
+                </div>
+                <div class="moment-content">
+                    <h4>Poolside Afternoons</h4>
+                    <p>Surrender to the gentle rhythm of the cicadas while floating in the crystal-clear pool, surrounded by fragrant Mediterranean gardens. Time seems to stand still as you drift between wakefulness and dreams.</p>
+                </div>
+            </div>
+            
+            <!-- Golden Hour - Using petit-dejeuner image -->
+            <div class="moment evening">
+                <div class="moment-time">17:00 - 20:00</div>
+                <div class="moment-image">
+                    <img src="assets/images/petit-dejeuner-2_2048x2048.jpg" alt="Evening terrace">
+                </div>
+                <div class="moment-content">
+                    <h4>Golden Hour</h4>
+                    <p>As evening approaches, sip local rosé while watching the sunset paint the countryside in hues that have inspired artists for centuries. The village below begins to twinkle as lights appear in ancient windows.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Add scroll-triggered animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.moment').forEach(moment => {
+            observer.observe(moment);
+        });
+
+        // Add click interaction to moments
+        document.querySelectorAll('.moment').forEach(moment => {
+            moment.addEventListener('click', function() {
+                this.style.transform = 'scale(0.98)';
+                setTimeout(() => {
+                    this.style.transform = 'scale(1)';
+                }, 150);
+            });
+        });
+    </script>
+</body>
+</html>
